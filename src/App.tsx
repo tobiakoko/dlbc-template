@@ -14,6 +14,7 @@ const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Con
 const Give = lazy(() => import('./pages/Give').then(m => ({ default: m.Give })));
 const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })));
 const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })));
+const PhotoGallery = lazy(() => import('./pages/PhotoGallery'));
 
 /**
  * Loading Component
@@ -66,6 +67,7 @@ const App: React.FC = () => {
               <Route path="/ministries" element={<Ministries />} />
               <Route path="/ministries/:slug" element={<MinistryDetail />} />
               <Route path="/events" element={<Events />} />
+              <Route path="/gallery" element={<PhotoGallery />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/give" element={<Give />} />
               <Route path="/privacy" element={<Privacy />} />
