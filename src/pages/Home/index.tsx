@@ -7,6 +7,7 @@ import EventsSection from '@/components/sections/EventsSection';
 import MinistriesSection from '@/components/sections/MinistriesSection';
 import SermonsSection from '@/components/sections/SermonsSection';
 import PrayerRequestSection from '@/components/sections/PrayerRequestSection';
+import PictureGallery from '@/components/sections/PictureGallery';
 
 /**
  * Home Page Component
@@ -17,6 +18,7 @@ import PrayerRequestSection from '@/components/sections/PrayerRequestSection';
  * - Service times and schedules
  * - Upcoming events
  * - Ministry highlights
+ * - Photo and picture galleries
  * - Recent sermons
  * - Prayer request section
  *
@@ -80,6 +82,7 @@ export const Home = memo(() => {
         <AboutSection />
         <EventsSection />
         <MinistriesSection />
+        <PictureGallery />
         <SermonsSection />
         <PrayerRequestSection />
       </main>

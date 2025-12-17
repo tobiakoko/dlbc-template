@@ -266,7 +266,7 @@ body {
 
   /* TYPOGRAPHY - Optimized for readability and modern church aesthetic */
   --font-display: "Playfair Display", Georgia, serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --font-heading: "Lora", Georgia, serif;
 
   /* BACKGROUND PATTERNS & GRADIENTS */

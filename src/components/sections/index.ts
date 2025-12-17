@@ -4,6 +4,8 @@ export { default as AboutSection } from './AboutSection';
 export { default as ServiceTimes } from './ServiceTimes';
 export { default as SermonsSection } from './SermonsSection';
 export { default as MinistriesSection } from './MinistriesSection';
+export { default as PhotoGallery } from './PhotoGallery';
+export { default as PictureGallery } from './PictureGallery';
 export { default as EventsSection } from './EventsSection';
 export { default as PrayerRequestSection } from './PrayerRequestSection';
 export { PastorWelcome } from './PastorWelcome';
