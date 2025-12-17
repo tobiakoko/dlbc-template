@@ -15,6 +15,7 @@ const Give = lazy(() => import('./pages/Give').then(m => ({ default: m.Give })))
 const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })));
 const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })));
 const PhotoGallery = lazy(() => import('./pages/PhotoGallery'));
+const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })));
 
 /**
  * Loading Component
@@ -72,6 +73,8 @@ const App: React.FC = () => {
               <Route path="/give" element={<Give />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
+              {/* 404 Catch-all route - must be last */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </main>
