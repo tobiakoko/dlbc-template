@@ -1,0 +1,194 @@
+import groq from 'groq';
+
+export const homePageQuery = groq`
+*[_type == "homePage"][0]{
+  hero{
+    title,
+    subtitle,
+    backgroundImage,
+    buttons[]{
+      label,
+      href,
+      variant,
+      external,
+      iconName
+    },
+    metrics[]{
+      label,
+      value,
+      description,
+      iconName
+    },
+    gathering{
+      eyebrow,
+      title,
+      description,
+      details[]{
+        label,
+        value,
+        description,
+        iconName
+      },
+      spotlight{
+        label,
+        value
+      }
+    }
+  },
+  about{
+    eyebrow,
+    title,
+    description,
+    paragraphs,
+    image{
+      "url": asset->url,
+      alt
+    },
+    button{
+      label,
+      href,
+      variant
+    },
+    cards[]{
+      label,
+      title,
+      description
+    }
+  },
+  serviceIntro{
+    eyebrow,
+    title,
+    description
+  },
+  serviceTimes[]{
+    title,
+    time,
+    description,
+    iconName
+  },
+  events[]->{
+    _id,
+    title,
+    "date": coalesce(date, eventDate),
+    time,
+    location,
+    description,
+    href,
+    ctaLabel,
+    featured
+  },
+  sermons[]->{
+    _id,
+    title,
+    date,
+    speaker,
+    series,
+    "thumbnail": thumbnail.asset->url
+  },
+  ministries[]->{
+    _id,
+    name,
+    description,
+    "image": image.asset->url
+  },
+  visitInfo{
+    eyebrow,
+    title,
+    description,
+    cards[]{
+      title,
+      description
+    },
+    highlightImage{
+      "url": asset->url,
+      alt
+    },
+    schedule[]{
+      label,
+      value
+    },
+    ctas[]{
+      label,
+      href,
+      variant,
+      external
+    },
+    location,
+    address,
+    campusName
+  }
+}
+`;
+
+export const siteContentQuery = groq`
+*[_type == "siteSettings"][0]{
+  brand{
+    name,
+    location,
+    initials,
+    tagline
+  },
+  navigation[]{
+    label,
+    path
+  },
+  navCtas[]{
+    label,
+    href,
+    variant,
+    external
+  },
+  footer{
+    visitUs{
+      campusName,
+      address
+    },
+    serviceTimes[]{
+      title,
+      description
+    },
+    planVisitCopy,
+    quickLinks[]{
+      label,
+      path
+    },
+    headline,
+    description,
+    contact{
+      address,
+      phone,
+      email
+    },
+    socials[]{
+      label,
+      url,
+      iconName
+    },
+    newsletterCopy,
+    ctas[]{
+      label,
+      href,
+      variant,
+      external
+    },
+    copyright
+  }
+}
+`;
+
+export const pastorWelcomeQuery = groq`
+*[_type == "pastorWelcome"][0]{
+  title,
+  subtitle,
+  pastorName,
+  pastorTitle,
+  "pastorImage": pastorImage.asset->url,
+  welcomeMessage,
+  signature,
+  callToAction{
+    enabled,
+    label,
+    href
+  }
+}
+`;
