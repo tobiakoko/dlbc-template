@@ -1,0 +1,12 @@
+# Sanity Studio build output
+/dist
+
+# Sanity CLI
+.sanity
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
