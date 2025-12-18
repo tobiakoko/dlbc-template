@@ -20,6 +20,7 @@ import ministry from './documents/ministry';
 import event from './documents/event';
 import sermon from './documents/sermon';
 import sermonSeries from './documents/sermonSeries';
+import galleryImage from './documents/galleryImage';
 
 /**
  * Schema types array
@@ -36,6 +37,7 @@ export const schemaTypes = [
   event,
   sermon,
   sermonSeries,
+  galleryImage,
 
   // Object types (hidden from main navigation)
   ctaButton,

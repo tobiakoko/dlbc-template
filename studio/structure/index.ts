@@ -13,6 +13,7 @@ import {
   CalendarIcon,
   PlayIcon,
   PackageIcon,
+  ImageIcon,
 } from '@sanity/icons';
 
 export const structure: StructureResolver = (S) =>
@@ -116,6 +117,57 @@ export const structure: StructureResolver = (S) =>
             ])
         ),
 
+      S.listItem()
+        .title('Photo Gallery')
+        .icon(ImageIcon)
+        .child(
+          S.list()
+            .title('Photo Gallery')
+            .items([
+              S.listItem()
+                .title('All Photos')
+                .icon(ImageIcon)
+                .child(
+                  S.documentList()
+                    .title('All Photos')
+                    .filter('_type == "galleryImage"')
+                    .defaultOrdering([{ field: 'order', direction: 'asc' }])
+                ),
+
+              S.listItem()
+                .title('Featured Photos')
+                .icon(ImageIcon)
+                .child(
+                  S.documentList()
+                    .title('Featured Photos')
+                    .filter('_type == "galleryImage" && featured == true')
+                    .defaultOrdering([{ field: 'order', direction: 'asc' }])
+                ),
+
+              S.divider(),
+
+              S.listItem()
+                .title('By Category')
+                .icon(ImageIcon)
+                .child(
+                  S.documentList()
+                    .title('By Category')
+                    .filter('_type == "galleryImage"')
+                    .defaultOrdering([{ field: 'category', direction: 'asc' }])
+                ),
+
+              S.listItem()
+                .title('Unpublished')
+                .icon(ImageIcon)
+                .child(
+                  S.documentList()
+                    .title('Unpublished Photos')
+                    .filter('_type == "galleryImage" && published == false')
+                    .defaultOrdering([{ field: 'eventDate', direction: 'desc' }])
+                ),
+            ])
+        ),
+
       S.divider(),
 
       // Remaining document types
@@ -129,6 +181,7 @@ export const structure: StructureResolver = (S) =>
             'event',
             'sermon',
             'sermonSeries',
+            'galleryImage',
             // Hide object types from main navigation
             'ctaButton',
             'metric',

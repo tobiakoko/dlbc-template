@@ -17,3 +17,4 @@ export {
 // Additional query exports
 export * from './events';
 export * from './sermons';
+export * from './gallery';
