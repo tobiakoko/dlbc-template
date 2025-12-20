@@ -75,7 +75,7 @@ export function About() {
       />
 
       {/* Our Story Section */}
-      <section className="bg-white">
+      <section id="our-story" className="bg-white">
         <div className="section-shell grid items-center gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -106,7 +106,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="h-[500px] overflow-hidden rounded-[32px] border border-black/5 shadow-[0_35px_90px_rgba(10,7,20,0.15)] group"
+            className="h-125 overflow-hidden rounded-[32px] border border-black/5 shadow-[0_35px_90px_rgba(10,7,20,0.15)] group"
           >
             <img
               src="https://images.unsplash.com/photo-1763219804448-84ad92cadb5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBpbnRlcmlvciUyMGNvbmdyZWdhdGlvbnxlbnwxfHx8fDE3NjU3MTI5ODF8MA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -118,7 +118,7 @@ export function About() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="bg-[var(--color-rose)]/70">
+      <section id="mission" className="bg-rose/70">
         <div className="section-shell">
           <div className="text-center mb-16">
             <h2 className="mb-4">Our Mission & Vision</h2>
@@ -154,7 +154,7 @@ export function About() {
       </section>
 
       {/* Core Values Section */}
-      <section className="bg-white">
+      <section id="values" className="bg-white">
         <div className="section-shell">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -193,7 +193,7 @@ export function About() {
       </section>
 
       {/* Statement of Faith Section */}
-      <section className="bg-[#0c0918] text-white">
+      <section id="beliefs" className="bg-[#0c0918] text-white">
         <div className="section-shell">
           <div className="mx-auto max-w-4xl">
             <div className="text-center mb-16">
@@ -249,7 +249,7 @@ export function About() {
       </section>
 
       {/* Leadership Section - Enhanced with Bio Modal */}
-      <section className="bg-white">
+      <section id="leadership" className="bg-white">
         <div className="section-shell">
           <div className="text-center mb-16">
             <h2 className="mb-4">Our Leadership</h2>
