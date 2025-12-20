@@ -5,9 +5,13 @@ import { PastorModal } from '@/components/PastorModal';
 import { PastorCard } from '@/components/cards/PastorCard';
 import { PageHero } from '@/components/sections/PageHero';
 import { Card } from '@/components/ui/card';
+import { useScrollToHash } from '@/hooks/useScrollToHash';
 
 export function About() {
   const [selectedPastor, setSelectedPastor] = useState<any>(null);
+
+  // Enable hash scrolling
+  useScrollToHash();
 
   const pastors = [
     {
