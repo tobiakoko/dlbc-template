@@ -14,8 +14,15 @@ import { schemaTypes } from './studio/schemas';
 import { structure } from './studio/structure';
 
 // Define the Sanity project configuration
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID || '';
-const dataset = process.env.SANITY_STUDIO_DATASET || 'production';
+// Use import.meta.env for Vite, fallback to process.env for CLI
+const projectId =
+  (typeof import.meta !== 'undefined' && import.meta.env?.VITE_SANITY_PROJECT_ID) ||
+  (typeof process !== 'undefined' && process.env?.SANITY_STUDIO_PROJECT_ID) ||
+  '';
+const dataset =
+  (typeof import.meta !== 'undefined' && import.meta.env?.VITE_SANITY_DATASET) ||
+  (typeof process !== 'undefined' && process.env?.SANITY_STUDIO_DATASET) ||
+  'production';
 
 export default defineConfig({
   name: 'default',

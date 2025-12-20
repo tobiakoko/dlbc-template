@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
+import SanityStudio from './pages/Studio';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
@@ -45,54 +46,67 @@ const PageLoader = () => (
 const App: React.FC = () => {
   return (
     <Router>
-      {/* Skip to main content link for keyboard users */}
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
+      <Routes>
+        {/* Sanity Studio Route - Full screen, no layout */}
+        <Route path="/studio/*" element={<SanityStudio />} />
 
-      <div className="min-h-screen flex flex-col bg-white">
-        {/* Site Header */}
-        <Header />
+        {/* Main site routes with Header/Footer layout */}
+        <Route
+          path="/*"
+          element={
+            <>
+              {/* Skip to main content link for keyboard users */}
+              <a href="#main-content" className="skip-link">
+                Skip to main content
+              </a>
 
-        {/* Main Content Area */}
-        <main
-          id="main-content"
-          tabIndex={-1}
-          className="flex-1 outline-none"
-          role="main"
-        >
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/ministries" element={<Ministries />} />
-              <Route path="/ministries/:slug" element={<MinistryDetail />} />
-              <Route path="/events" element={<Events />} />
-              <Route path="/gallery" element={<PhotoGallery />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/give" element={<Give />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
-              {/* 404 Catch-all route - must be last */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </main>
+              <div className="min-h-screen flex flex-col bg-white">
+                {/* Site Header */}
+                <Header />
 
-        {/* Site Footer */}
-        <Footer />
+                {/* Main Content Area */}
+                <main
+                  id="main-content"
+                  tabIndex={-1}
+                  className="flex-1 outline-none"
+                  role="main"
+                >
+                  <Suspense fallback={<PageLoader />}>
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/about" element={<About />} />
+                      <Route path="/ministries" element={<Ministries />} />
+                      <Route path="/ministries/:slug" element={<MinistryDetail />} />
+                      <Route path="/events" element={<Events />} />
+                      <Route path="/gallery" element={<PhotoGallery />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/give" element={<Give />} />
+                      <Route path="/privacy" element={<Privacy />} />
+                      <Route path="/terms" element={<Terms />} />
+                      {/* 404 Catch-all route - must be last */}
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </Suspense>
+                </main>
 
-        {/* Toast Notifications */}
-        <Toaster
-          position="bottom-right"
-          richColors
-          closeButton
-          toastOptions={{
-            duration: 4000,
-            className: 'font-body',
-          }}
+                {/* Site Footer */}
+                <Footer />
+
+                {/* Toast Notifications */}
+                <Toaster
+                  position="bottom-right"
+                  richColors
+                  closeButton
+                  toastOptions={{
+                    duration: 4000,
+                    className: 'font-body',
+                  }}
+                />
+              </div>
+            </>
+          }
         />
-      </div>
+      </Routes>
     </Router>
   );
 };
