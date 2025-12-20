@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef, memo } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Phone, Mail, Facebook, Youtube, Instagram } from 'lucide-react';
 import { NAV_ITEMS, CHURCH_INFO } from '@/utils/data';
@@ -140,8 +141,8 @@ const Header = memo(() => {
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <a
-              href="/"
+            <Link
+              to="/"
               className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-800 rounded-lg"
               aria-label="DCLM Tampa - Home"
             >
@@ -158,7 +159,7 @@ const Header = memo(() => {
                 </div>
                 <p className="text-white/70 text-xs">Deeper Life Bible Church</p>
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1" role="navigation">
@@ -175,12 +176,12 @@ const Header = memo(() => {
 
             {/* CTA Button */}
             <div className="hidden lg:block">
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="btn-primary text-sm px-6 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-800"
               >
                 Plan Your Visit
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -224,13 +225,13 @@ const Header = memo(() => {
 
               {/* Mobile CTA */}
               <div className="mt-6 pt-6 border-t border-white/10">
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="btn-primary w-full text-center block"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Plan Your Visit
-                </a>
+                </Link>
               </div>
 
               {/* Mobile Social Links */}
@@ -285,8 +286,8 @@ const NavItemDesktop = memo(({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <a
-        href={item.href}
+      <Link
+        to={item.href}
         className={`flex items-center gap-1 px-4 py-2 text-white/90 hover:text-white font-medium text-sm transition-all duration-200 rounded-lg hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 ${
           isActive ? 'text-white bg-white/10' : ''
         }`}
@@ -301,7 +302,7 @@ const NavItemDesktop = memo(({
             aria-hidden="true"
           />
         )}
-      </a>
+      </Link>
 
       {/* Dropdown Menu */}
       <AnimatePresence>
@@ -316,14 +317,14 @@ const NavItemDesktop = memo(({
           >
             <div className="py-2">
               {item.children?.map((child: NavItem) => (
-                <a
+                <Link
                   key={child.label}
-                  href={child.href}
+                  to={child.href}
                   className="block px-4 py-2.5 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-colors focus:outline-none focus-visible:bg-primary-50 focus-visible:text-primary-700"
                   role="menuitem"
                 >
                   {child.label}
-                </a>
+                </Link>
               ))}
             </div>
           </motion.div>
@@ -359,13 +360,13 @@ const NavItemMobile = memo(({
       className="border-b border-white/5 last:border-0"
     >
       <div className="flex items-center justify-between">
-        <a
-          href={item.href}
+        <Link
+          to={item.href}
           className="flex-1 py-3 text-white/90 hover:text-white font-medium transition-colors focus:outline-none focus-visible:text-white"
           onClick={onNavigate}
         >
           {item.label}
-        </a>
+        </Link>
         {hasChildren && (
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -392,14 +393,14 @@ const NavItemMobile = memo(({
             className="pl-4 border-l-2 border-accent-500/50 ml-2 mb-2"
           >
             {item.children?.map((child: NavItem) => (
-              <a
+              <Link
                 key={child.label}
-                href={child.href}
+                to={child.href}
                 className="block py-2 text-sm text-white/70 hover:text-white transition-colors focus:outline-none focus-visible:text-white"
                 onClick={onNavigate}
               >
                 {child.label}
-              </a>
+              </Link>
             ))}
           </motion.div>
         )}

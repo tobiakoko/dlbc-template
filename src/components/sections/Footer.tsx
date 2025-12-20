@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { memo, useState, useCallback, type FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import {
   MapPin,
   Phone,
@@ -136,8 +137,8 @@ const Footer = memo(() => {
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="text-white/70 hover:text-accent-400 transition-colors flex items-center gap-2 group text-sm focus:outline-none focus-visible:text-accent-400"
                     >
                       <ChevronRight
@@ -146,12 +147,12 @@ const Footer = memo(() => {
                         aria-hidden="true"
                       />
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
                 <li>
-                  <a
-                    href="/give"
+                  <Link
+                    to="/give"
                     className="text-white/70 hover:text-accent-400 transition-colors flex items-center gap-2 group text-sm focus:outline-none focus-visible:text-accent-400"
                   >
                     <ChevronRight
@@ -160,7 +161,7 @@ const Footer = memo(() => {
                       aria-hidden="true"
                     />
                     Give Online
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -176,8 +177,8 @@ const Footer = memo(() => {
               <ul className="space-y-3">
                 {ministryLinks.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="text-white/70 hover:text-accent-400 transition-colors flex items-center gap-2 group text-sm focus:outline-none focus-visible:text-accent-400"
                     >
                       <ChevronRight
@@ -186,7 +187,7 @@ const Footer = memo(() => {
                         aria-hidden="true"
                       />
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
