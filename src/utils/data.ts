@@ -32,14 +32,15 @@ export const CHURCH_INFO: ChurchInfo = {
 // Navigation Items
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '/' },
-  { 
-    label: 'About Us', 
+  {
+    label: 'About Us',
     href: '/about',
     children: [
-      { label: 'Our Story', href: '/about/story' },
-      { label: 'Our Beliefs', href: '/about/beliefs' },
-      { label: 'Leadership', href: '/about/leadership' },
-      { label: 'Our Mission', href: '/about/mission' },
+      { label: 'Our Story', href: '/about#our-story' },
+      { label: 'Our Mission', href: '/about#mission' },
+      { label: 'Core Values', href: '/about#values' },
+      { label: 'What We Believe', href: '/about#beliefs' },
+      { label: 'Leadership', href: '/about#leadership' },
     ]
   },
   { 
