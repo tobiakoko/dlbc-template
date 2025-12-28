@@ -298,22 +298,22 @@ export const LEADERSHIP: Leader[] = [
     id: '2',
     name: 'Pastor Michael A. Dada',
     title: 'Regional Overseer - Mid-Atlantic & South-East USA',
-    image: '/src/assets/pastor_dada.JPG',
+    image: '/pastor_dada.JPG',
     bio: 'Pastor Michael A. Dada is a dynamic Holy Ghost-filled preacher whose ministry has witnessed the conversion of souls and miracles, signs, and wonders. He currently oversees over seventy church locations in the United States, about sixty of which were planted under his leadership within nineteen years. A former banker turned preacher, he holds B.Sc in Business Administration and MBA degrees. His marriage of over thirty years is blessed with five children.',
   },
   {
     id: '3',
     name: 'Pastor Raymond Akoko',
     title: 'Local Pastor - DLBC Tampa',
-    image: '/src/assets/pastor_raymond.jpg',
+    image: '/pastor_raymond.jpg',
     bio: 'Pastor Raymond Akoko leads the Deeper Life Bible Church Tampa congregation with dedication to biblical teaching and holiness. He provides spiritual guidance and pastoral care to our church family, continuing the mission of making disciples and demonstrating God\'s love in our community.',
   },
 ];
 
 export const leadership = [
   { name: 'Pastor W.F. Kumuyi', role: 'General Superintendent, DCLM Worldwide', bio: 'Pastor W.F. Kumuyi founded Deeper Life Bible Church in 1973 while serving as a Mathematics lecturer at the University of Lagos. Starting with just 15 university students, the ministry has grown to over 120,000 members in Lagos alone and thousands of churches across more than 40 countries worldwide. Born in 1941, Pastor Kumuyi was born again on April 5th, 1964. He holds a first-class degree in Mathematics from the University of Ibadan. Journalist Alan Isaacson describes him as "one of the greatest living preachers, giving a straightforward Bible-based message, his sermons thorough, and always personally challenging."', image: 'https://dclmcloud.s3.amazonaws.com/dclm.org/media/wf-kumuyi.jpg' },
-  { name: 'Pastor Michael A. Dada', role: 'Regional Overseer - Mid-Atlantic & South-East USA', bio: 'Pastor Michael A. Dada is a dynamic Holy Ghost-filled preacher whose ministry has witnessed the conversion of souls and miracles, signs, and wonders. He currently oversees over seventy church locations in the United States, about sixty of which were planted under his leadership within nineteen years. A former banker turned preacher, he holds B.Sc in Business Administration and MBA degrees. In addition to serving as Regional Overseer, he is also a coordinating overseer for different countries in Asia. He serves as Chairman Board of Directors of the African Ministers Fellowship (A.M.F.) and National Vice Chairman for Africa Strategic Leadership Prayer Network (A.S.L.P.N.) in the USA. His marriage of over thirty years is blessed with five children.', image: '/src/assets/pastor_dada.JPG' },
-  { name: 'Pastor Raymond Akoko', role: 'Local Pastor - DCLM Tampa', bio: "Pastor Raymond Akoko leads the Deeper Life Bible Church Tampa congregation with dedication to biblical teaching and holiness. He provides spiritual guidance and pastoral care to our church family, continuing the mission of making disciples and demonstrating God's love in our community.", image: '/src/assets/pastor_raymond.jpg' },
+  { name: 'Pastor Michael A. Dada', role: 'Regional Overseer - Mid-Atlantic & South-East USA', bio: 'Pastor Michael A. Dada is a dynamic Holy Ghost-filled preacher whose ministry has witnessed the conversion of souls and miracles, signs, and wonders. He currently oversees over seventy church locations in the United States, about sixty of which were planted under his leadership within nineteen years. A former banker turned preacher, he holds B.Sc in Business Administration and MBA degrees. In addition to serving as Regional Overseer, he is also a coordinating overseer for different countries in Asia. He serves as Chairman Board of Directors of the African Ministers Fellowship (A.M.F.) and National Vice Chairman for Africa Strategic Leadership Prayer Network (A.S.L.P.N.) in the USA. His marriage of over thirty years is blessed with five children.', image: '/pastor_dada.JPG' },
+  { name: 'Pastor Raymond Akoko', role: 'Local Pastor - DCLM Tampa', bio: "Pastor Raymond Akoko leads the Deeper Life Bible Church Tampa congregation with dedication to biblical teaching and holiness. He provides spiritual guidance and pastoral care to our church family, continuing the mission of making disciples and demonstrating God's love in our community.", image: '/pastor_raymond.jpg' },
 ];
 
 // Prayer Request Types
@@ -629,77 +629,77 @@ export const beliefs = [
 export const GALLERY_IMAGES = [
   {
     id: '1',
-    src: '/src/assets/church_1.jpeg',
+    src: '/church_1.jpeg',
     alt: 'DCLM Tampa church gathering',
     category: 'Worship',
     date: '2024-12-01',
   },
   {
     id: '2',
-    src: '/src/assets/church_2.jpeg',
+    src: '/church_2.jpeg',
     alt: 'DCLM Tampa fellowship',
     category: 'Fellowship',
     date: '2024-11-28',
   },
   {
     id: '3',
-    src: '/src/assets/church_3.jpg',
+    src: '/church_3.jpg',
     alt: 'DCLM Tampa worship service',
     category: 'Worship',
     date: '2024-11-22',
   },
   {
     id: '4',
-    src: '/src/assets/church_4.jpg',
+    src: '/church_4.jpg',
     alt: 'DCLM Tampa community',
     category: 'Community',
     date: '2024-11-20',
   },
   {
     id: '5',
-    src: '/src/assets/church_5.jpg',
+    src: '/church_5.jpg',
     alt: 'DCLM Tampa ministry event',
     category: 'Ministry',
     date: '2024-11-15',
   },
   {
     id: '6',
-    src: '/src/assets/church_6.jpg',
+    src: '/church_6.jpg',
     alt: 'DCLM Tampa prayer meeting',
     category: 'Prayer',
     date: '2024-11-10',
   },
   {
     id: '7',
-    src: '/src/assets/church_7.jpg',
+    src: '/church_7.jpg',
     alt: 'DCLM Tampa Bible study',
     category: 'Study',
     date: '2024-11-05',
   },
   {
     id: '8',
-    src: '/src/assets/church_8.jpg',
+    src: '/church_8.jpg',
     alt: 'DCLM Tampa youth gathering',
     category: 'Youth',
     date: '2024-11-01',
   },
   {
     id: '9',
-    src: '/src/assets/church_9.jpg',
+    src: '/church_9.jpg',
     alt: 'DCLM Tampa outreach',
     category: 'Outreach',
     date: '2024-10-28',
   },
   {
     id: '10',
-    src: '/src/assets/church_10.jpg',
+    src: '/church_10.jpg',
     alt: 'DCLM Tampa special service',
     category: 'Service',
     date: '2024-10-22',
   },
   {
     id: '11',
-    src: '/src/assets/church_11.jpg',
+    src: '/church_11.jpg',
     alt: 'DCLM Tampa celebration',
     category: 'Celebration',
     date: '2024-10-15',
@@ -833,10 +833,10 @@ export const HERO_BACKGROUNDS = {
 
 // Service Time Default Images
 export const SERVICE_TIME_IMAGES = {
-  'Sunday Worship Service': '/src/assets/church_2.jpeg',
-  'Bible Study': '/src/assets/church_6.jpg',
-  'Prayer Meeting & Revival Service': '/src/assets/church_8.jpg',
-  'Community Outreach': '/src/assets/church_4.jpg',
+  'Sunday Worship Service': '/church_2.jpeg',
+  'Bible Study': '/church_6.jpg',
+  'Prayer Meeting & Revival Service': '/church_8.jpg',
+  'Community Outreach': '/church_4.jpg',
 };
 
 // Ministry Statistics
@@ -849,8 +849,8 @@ export const MINISTRY_STATS = [
 
 // About Section Data
 export const ABOUT_SECTION = {
-  image: '/src/assets/church_1.jpeg',
-  churchInteriorImage: '/src/assets/church_3.jpg',
+  image: '/church_1.jpeg',
+  churchInteriorImage: '/church_3.jpg',
   history: [
     'Founded in 1995, Deeper Life Bible Church Tampa has been a beacon of hope and spiritual transformation in the Tampa Bay community for nearly three decades.',
     'What began as a small gathering of believers committed to biblical truth and holiness has grown into a vibrant congregation serving hundreds of families across the region.',
@@ -860,11 +860,11 @@ export const ABOUT_SECTION = {
 
 // Default Fallback Images
 export const DEFAULT_IMAGES = {
-  pastor: '/src/assets/pastor_raymond.jpg',
-  leader: '/src/assets/pastor_raymond.jpg',
-  ministry: '/src/assets/church_5.jpg',
-  event: '/src/assets/church_7.jpg',
-  sermon: '/src/assets/church_9.jpg',
+  pastor: '/pastor_raymond.jpg',
+  leader: '/pastor_raymond.jpg',
+  ministry: '/church_5.jpg',
+  event: '/church_7.jpg',
+  sermon: '/church_9.jpg',
 };
 
 
