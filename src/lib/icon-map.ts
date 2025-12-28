@@ -1,5 +1,6 @@
 import {
   BookOpen,
+  Book,
   CalendarDays,
   Clock,
   Facebook,
@@ -7,6 +8,13 @@ import {
   MapPin,
   Users,
   Youtube,
+  Music,
+  Heart,
+  DollarSign,
+  Building,
+  Send,
+  Shield,
+  Globe,
   type LucideIcon,
 } from 'lucide-react';
 import type { IconName } from '@/types/cms';
@@ -21,6 +29,15 @@ const iconMap: Record<IconName, LucideIcon> = {
   youtube: Youtube,
   facebook: Facebook,
   instagram: Instagram,
+  book: Book,
+  'book-open': BookOpen,
+  music: Music,
+  heart: Heart,
+  'dollar-sign': DollarSign,
+  building: Building,
+  send: Send,
+  shield: Shield,
+  globe: Globe,
 };
 
 export function getIconByName(name?: IconName, fallback: LucideIcon = CalendarDays) {

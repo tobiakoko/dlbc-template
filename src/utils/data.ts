@@ -11,19 +11,19 @@ import type {
 // Church Information
 export const CHURCH_INFO: ChurchInfo = {
   name: 'Deeper Life Bible Church Tampa',
-  shortName: 'DCLM Tampa',
-  tagline: 'Experience the Deeper Life in Christ',
+  shortName: 'DLBC Tampa',
+  tagline: 'Your Spiritual Welfare is Our Concern',
   address: {
-    street: '1234 Faith Avenue',
-    city: 'Tampa',
+    street: '9720 N 56th St',
+    city: 'Temple Terrace',
     state: 'FL',
-    zip: '33601',
+    zip: '33617',
     country: 'USA',
   },
-  phone: '(813) 555-0123',
-  email: 'info@dclmtampa.org',
+  phone: '(813) 542-7793',
+  email: 'info@dlbctampa.org',
   socialLinks: [
-    { platform: 'facebook', url: 'https://facebook.com/dclmtampa', label: 'Follow us on Facebook' },
+    { platform: 'facebook', url: 'https://www.facebook.com/dlbcTampa', label: 'Follow us on Facebook' },
     { platform: 'youtube', url: 'https://youtube.com/@dclmtampa', label: 'Watch on YouTube' },
     { platform: 'instagram', url: 'https://instagram.com/dclmtampa', label: 'Follow us on Instagram' },
   ],
@@ -56,49 +56,50 @@ export const NAV_ITEMS: NavItem[] = [
     label: 'Ministries', 
     href: '/ministries',
     children: [
-      { label: 'Men\'s Ministry', href: '/ministries/men' },
+      { label: 'Young Adult Ministry', href: '/ministries/youngAdult' },
       { label: 'Women\'s Ministry', href: '/ministries/women' },
       { label: 'Youth Ministry', href: '/ministries/youth' },
       { label: 'Children\'s Ministry', href: '/ministries/children' },
     ]
   },
   { label: 'Events', href: '/events' },
+  { label: 'Give', href: '/give' },
   { label: 'Contact Us', href: '/contact' },
 ];
 
 // Service Times
 export const SERVICE_TIMES: ServiceTime[] = [
   {
-    id: 'sunday-school',
-    day: 'Sunday',
-    name: 'Sunday School',
-    time: '9:00 AM',
-    description: 'Bible study for all ages',
-    icon: 'book-open',
-  },
-  {
     id: 'sunday-worship',
     day: 'Sunday',
-    name: 'Worship Service',
-    time: '10:30 AM',
-    description: 'Main worship gathering',
+    name: 'Sunday Worship Service',
+    time: '9:00 AM',
+    description: 'Main worship gathering with powerful preaching and praise',
     icon: 'music',
   },
   {
     id: 'wednesday-bible',
     day: 'Wednesday',
     name: 'Bible Study',
-    time: '7:00 PM',
-    description: 'Midweek teaching and prayer',
-    icon: 'book',
+    time: '6:00 PM',
+    description: 'In-depth study of God\'s Word',
+    icon: 'book-open',
   },
   {
-    id: 'friday-prayer',
+    id: 'friday-revival',
     day: 'Friday',
-    name: 'Prayer Meeting',
-    time: '7:00 PM',
+    name: 'Prayer Meeting & Revival Service',
+    time: '6:00 PM',
     description: 'Corporate prayer and intercession',
     icon: 'heart',
+  },
+  {
+    id: 'saturday-outreach',
+    day: 'Saturday',
+    name: "Community Outreach",
+    time: '5:00 PM',
+    description: 'Serving our community with love through evangelism',
+    icon: 'briefcase',
   },
 ];
 
@@ -106,113 +107,181 @@ export const SERVICE_TIMES: ServiceTime[] = [
 export const FEATURED_SERMONS: Sermon[] = [
   {
     id: '1',
-    title: 'Walking in Divine Purpose',
+    title: 'The First Faith and the First Love for Jesus',
     preacher: 'Pastor W.F. Kumuyi',
-    date: '2024-12-08',
-    duration: '45:30',
+    date: '2025-12-27',
+    duration: '60:00',
     thumbnail: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&q=80',
-    category: 'Sunday Message',
-    description: 'Discovering and fulfilling God\'s unique purpose for your life.',
+    category: 'Retreat Message',
+    description: 'A powerful message from the Global December Retreat on maintaining first love and faith.',
   },
   {
     id: '2',
-    title: 'The Power of Prayer',
-    preacher: 'Pastor John Doe',
-    date: '2024-12-01',
-    duration: '38:15',
+    title: 'Conditions of Security in Christ',
+    preacher: 'Pastor W.F. Kumuyi',
+    date: '2025-12-27',
+    duration: '55:00',
     thumbnail: 'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&q=80',
-    category: 'Wednesday Teaching',
-    description: 'Understanding the transformative power of consistent prayer.',
+    category: 'Retreat Message',
+    description: 'Understanding our security and standing in Christ Jesus.',
   },
   {
     id: '3',
-    title: 'Faith That Moves Mountains',
+    title: 'The All-Sufficient Name of Jesus',
     preacher: 'Pastor W.F. Kumuyi',
-    date: '2024-11-24',
+    date: '2025-12-27',
     duration: '52:00',
     thumbnail: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&q=80',
-    category: 'Sunday Message',
-    description: 'Building unshakeable faith in challenging times.',
+    category: 'Retreat Message',
+    description: 'Exploring the power and sufficiency in the name of Jesus.',
   },
   {
     id: '4',
-    title: 'Living a Holy Life',
-    preacher: 'Pastor Jane Smith',
-    date: '2024-11-17',
-    duration: '41:45',
+    title: "Christ's Power to Heal Despite the Critics' Presence",
+    preacher: 'Pastor W.F. Kumuyi',
+    date: '2025-12-08',
+    duration: '45:00',
     thumbnail: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80',
-    category: 'Special Service',
-    description: 'Practical steps to holiness in everyday living.',
+    category: 'Bible Study',
+    description: 'A Bible study on the healing power of Christ.',
   },
 ];
 
-// Upcoming Events
-export const UPCOMING_EVENTS: ChurchEvent[] = [
+export const sermons = [
+  { id: 1, title: 'The First Faith and the First Love for Jesus', speaker: 'Pastor W.F. Kumuyi', date: 'December 27, 2025', scripture: 'Revelation 2:1-7', duration: '60 min' },
+  { id: 2, title: 'Conditions of Security in Christ', speaker: 'Pastor W.F. Kumuyi', date: 'December 27, 2025', scripture: 'John 10:27-30', duration: '55 min' },
+  { id: 3, title: 'The All-Sufficient Name of Jesus', speaker: 'Pastor W.F. Kumuyi', date: 'December 27, 2025', scripture: 'Philippians 2:9-11', duration: '52 min' },
+  { id: 4, title: "Christ's Power to Heal Despite the Critics' Presence", speaker: 'Pastor W.F. Kumuyi', date: 'December 8, 2025', scripture: 'Mark 2:1-12', duration: '45 min' },
+  { id: 5, title: 'Walking in Faith', speaker: 'Pastor Raymond Akoko', date: 'December 3, 2025', scripture: 'Hebrews 11:1-6', duration: '42 min' },
+  { id: 6, title: 'The Indispensable Experience of the Indisputable Sanctification', speaker: 'Pastor W.F. Kumuyi', date: 'December 6, 2025', scripture: '1 Thessalonians 4:3-8', duration: '50 min' },
+];
+
+// Sermon Series
+export const SERMON_SERIES = [
   {
     id: '1',
-    title: 'Christmas Carol Service',
-    date: '2024-12-22',
-    time: '6:00 PM',
-    location: 'Main Sanctuary',
-    description: 'Join us for an evening of worship and celebration as we honor the birth of our Savior.',
-    category: 'worship',
-    image: 'https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=800&q=80',
+    title: 'Walking in Divine Purpose',
+    description: 'A transformative series exploring God\'s unique calling and purpose for your life. Learn to discover, embrace, and fulfill your divine destiny.',
+    thumbnail: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&q=80',
+    sermonCount: 4,
+    startDate: '2024-11-01',
+    endDate: '2024-11-24',
+    speaker: 'Pastor W.F. Kumuyi',
+    category: 'Sunday Message',
   },
   {
     id: '2',
-    title: 'New Year\'s Eve Service',
-    date: '2024-12-31',
-    time: '10:00 PM',
-    location: 'Main Sanctuary',
-    description: 'Cross over into the new year with prayer, praise, and prophetic declarations.',
-    category: 'special',
-    image: 'https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800&q=80',
+    title: 'Power of Prayer',
+    description: 'Discover the life-changing impact of consistent, fervent prayer. This series will strengthen your prayer life and deepen your relationship with God.',
+    thumbnail: 'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&q=80',
+    sermonCount: 3,
+    startDate: '2024-10-01',
+    endDate: '2024-10-15',
+    speaker: 'Pastor John Doe',
+    category: 'Wednesday Teaching',
   },
   {
     id: '3',
-    title: 'Youth Conference 2025',
-    date: '2025-01-15',
-    time: '9:00 AM',
-    location: 'Youth Center',
-    description: 'A powerful gathering for young people to encounter God and discover their purpose.',
-    category: 'youth',
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80',
+    title: 'Living Holiness',
+    description: 'Practical teachings on living a holy life in an unholy world. Learn biblical principles for daily sanctification and spiritual growth.',
+    thumbnail: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80',
+    sermonCount: 2,
+    startDate: '2024-09-15',
+    endDate: '2024-09-29',
+    speaker: 'Pastor Jane Smith',
+    category: 'Special Service',
   },
+];
+
+
+// Upcoming Events
+export const UPCOMING_EVENTS: ChurchEvent[] = [
+  { id: '1', title: 'Sunday Worship Service', date: 'Every Sunday', time: '8:00 AM', location: 'Main Sanctuary', description: 'Join us for powerful worship, inspiring messages, and fellowship.', category: 'worship', image: 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=800&q=80' },
+  { id: '2', title: 'Monday Bible Study', date: 'Every Monday', time: '6:00 PM', location: 'Main Sanctuary', description: "Dive deeper into God's Word through interactive study and discussion.", category: 'study', image: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&q=80' },
+  { id: '3', title: "Workers' Training", date: 'Every Saturday', time: '5:00 PM', location: 'Main Sanctuary', description: 'Equipping and training workers for effective ministry service.', category: 'training', image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80' },
+];
+
+export const events = [
+  {
+    id: 1,
+    title: "Sunday Service",
+    date: "Every Sunday",
+    time: "9:00 AM - 11:00 AM",
+    location: "Main Sanctuary",
+    description: "Join us for powerful worship, inspiring messages, and fellowship.",
+    type: "Weekly"
+  },
+  {
+    id: 2,
+    title: "Bible Study",
+    date: "Every Wednesday",
+    time: "6:00 PM - 8:00 PM",
+    location: "Fellowship Hall",
+    description: "Dive deeper into God's Word through interactive study and discussion.",
+    type: "Weekly"
+  },
+  {
+    id: 3,
+    title: "Prayer Meeting",
+    date: "Every Friday",
+    time: "6:00 PM - 7:00 PM",
+    location: "Prayer Room",
+    description: "Join us in corporate prayer as we seek God's presence and intercede for our community.",
+    type: "Weekly"
+  },
+  {
+    id: 4,
+    title: "Children Bible Club",
+    date: "Every Saturday",
+    time: "12:00 PM - 1:00 PM",
+    location: "Children's Wing",
+    description: "Engaging Bible lessons and fun activities for children to grow in their faith.",
+    type: "Weekly"
+  },
+  {
+    id: 5,
+    title: "Community Outreach",
+    date: "Every First Saturday",
+    time: "9:00 AM - 1:00 PM",
+    location: "Community Center",
+    description: "Serving our community with love through various outreach programs and services.",
+    type: "Monthly"
+  }
 ];
 
 // Ministries
 export const MINISTRIES: Ministry[] = [
   {
-    id: 'men',
-    name: 'Men\'s Ministry',
-    description: 'Empowering men to be godly leaders in their homes, workplaces, and communities.',
+    id: 'young-adult',
+    name: 'Young Adult\'s Ministry',
+    description: 'To unite young individuals to make a positive impact in our community for Christ.',
     image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80',
-    leader: 'Bro. Michael Johnson',
-    meetingTime: 'First Saturday, 8:00 AM',
+    leader: 'Bro. Emmanuel Oyadeyi',
+    meetingTime: 'As Scheduled',
   },
   {
     id: 'women',
     name: 'Women\'s Ministry',
     description: 'Building strong women of faith through fellowship, study, and service.',
     image: 'https://images.unsplash.com/photo-1609234656388-0ff363383899?w=800&q=80',
-    leader: 'Sis. Sarah Williams',
-    meetingTime: 'Second Saturday, 9:00 AM',
+    leader: 'Sis. Dunni Udugba',
+    meetingTime: 'Second Saturday, 11:00 AM',
   },
   {
     id: 'youth',
     name: 'Youth Ministry',
     description: 'Raising up a generation passionate about Jesus and equipped for impact.',
     image: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80',
-    leader: 'Pastor David Brown',
-    meetingTime: 'Every Friday, 6:00 PM',
+    leader: 'Bro Emmanuel Teye',
+    meetingTime: 'As Scheduled',
   },
   {
     id: 'children',
     name: 'Children\'s Ministry',
     description: 'Teaching children the Word of God in fun, engaging, and age-appropriate ways.',
     image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80',
-    leader: 'Sis. Mary Anderson',
-    meetingTime: 'Every Sunday, 9:00 AM',
+    leader: 'Sis. Jesutofunmi Fajemisin',
+    meetingTime: 'Every Saturday, 12:00 PM',
   },
 ];
 
@@ -221,24 +290,30 @@ export const LEADERSHIP: Leader[] = [
   {
     id: '1',
     name: 'Pastor W.F. Kumuyi',
-    title: 'General Superintendent',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
-    bio: 'Founder and General Superintendent of Deeper Life Bible Church worldwide.',
+    title: 'General Superintendent, DCLM Worldwide',
+    image: 'https://dclmcloud.s3.amazonaws.com/dclm.org/media/wf-kumuyi.jpg',
+    bio: 'Pastor W.F. Kumuyi founded Deeper Life Bible Church in 1973 while serving as a Mathematics lecturer at the University of Lagos. Starting with just 15 university students, the ministry has grown to over 120,000 members in Lagos alone and thousands of churches across more than 40 countries worldwide. Born in 1941, Pastor Kumuyi was born again on April 5th, 1964. He holds a first-class degree in Mathematics from the University of Ibadan and is recognized as one of the greatest living preachers.',
   },
   {
     id: '2',
-    name: 'Pastor James Thompson',
-    title: 'Regional Pastor',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
-    bio: 'Leading the Tampa congregation with passion for souls and biblical teaching.',
+    name: 'Pastor Michael A. Dada',
+    title: 'Regional Overseer - Mid-Atlantic & South-East USA',
+    image: '/src/assets/pastor_dada.JPG',
+    bio: 'Pastor Michael A. Dada is a dynamic Holy Ghost-filled preacher whose ministry has witnessed the conversion of souls and miracles, signs, and wonders. He currently oversees over seventy church locations in the United States, about sixty of which were planted under his leadership within nineteen years. A former banker turned preacher, he holds B.Sc in Business Administration and MBA degrees. His marriage of over thirty years is blessed with five children.',
   },
   {
     id: '3',
-    name: 'Pastor Grace Thompson',
-    title: 'Associate Pastor',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
-    bio: 'Overseeing women\'s ministry and family counseling.',
+    name: 'Pastor Raymond Akoko',
+    title: 'Local Pastor - DLBC Tampa',
+    image: '/src/assets/pastor_raymond.jpg',
+    bio: 'Pastor Raymond Akoko leads the Deeper Life Bible Church Tampa congregation with dedication to biblical teaching and holiness. He provides spiritual guidance and pastoral care to our church family, continuing the mission of making disciples and demonstrating God\'s love in our community.',
   },
+];
+
+export const leadership = [
+  { name: 'Pastor W.F. Kumuyi', role: 'General Superintendent, DCLM Worldwide', bio: 'Pastor W.F. Kumuyi founded Deeper Life Bible Church in 1973 while serving as a Mathematics lecturer at the University of Lagos. Starting with just 15 university students, the ministry has grown to over 120,000 members in Lagos alone and thousands of churches across more than 40 countries worldwide. Born in 1941, Pastor Kumuyi was born again on April 5th, 1964. He holds a first-class degree in Mathematics from the University of Ibadan. Journalist Alan Isaacson describes him as "one of the greatest living preachers, giving a straightforward Bible-based message, his sermons thorough, and always personally challenging."', image: 'https://dclmcloud.s3.amazonaws.com/dclm.org/media/wf-kumuyi.jpg' },
+  { name: 'Pastor Michael A. Dada', role: 'Regional Overseer - Mid-Atlantic & South-East USA', bio: 'Pastor Michael A. Dada is a dynamic Holy Ghost-filled preacher whose ministry has witnessed the conversion of souls and miracles, signs, and wonders. He currently oversees over seventy church locations in the United States, about sixty of which were planted under his leadership within nineteen years. A former banker turned preacher, he holds B.Sc in Business Administration and MBA degrees. In addition to serving as Regional Overseer, he is also a coordinating overseer for different countries in Asia. He serves as Chairman Board of Directors of the African Ministers Fellowship (A.M.F.) and National Vice Chairman for Africa Strategic Leadership Prayer Network (A.S.L.P.N.) in the USA. His marriage of over thirty years is blessed with five children.', image: '/src/assets/pastor_dada.JPG' },
+  { name: 'Pastor Raymond Akoko', role: 'Local Pastor - DCLM Tampa', bio: "Pastor Raymond Akoko leads the Deeper Life Bible Church Tampa congregation with dedication to biblical teaching and holiness. He provides spiritual guidance and pastoral care to our church family, continuing the mission of making disciples and demonstrating God's love in our community.", image: '/src/assets/pastor_raymond.jpg' },
 ];
 
 // Prayer Request Types
@@ -248,6 +323,7 @@ export const PRAYER_TYPES = [
   { value: 'thanksgiving', label: 'Thanksgiving' },
   { value: 'family', label: 'Family & Relationships' },
   { value: 'financial', label: 'Financial Breakthrough' },
+  { value: 'salvation', label: 'Salvation' },
   { value: 'other', label: 'Other' },
 ] as const;
 
@@ -257,14 +333,14 @@ export const HERO_SLIDES = [
     id: '1',
     image: 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=1920&q=80',
     title: 'Welcome to DCLM Tampa',
-    subtitle: 'Experience the Deeper Life in Christ',
+    subtitle: 'Your Spiritual Welfare is Our Concern',
     cta: { label: 'Join Us This Sunday', href: '#services' },
   },
   {
     id: '2',
     image: 'https://images.unsplash.com/photo-1478147427282-58a87a120781?w=1920&q=80',
-    title: 'Grow in Faith',
-    subtitle: 'Biblical Teaching for Spiritual Maturity',
+    title: 'Experience the Deeper Life',
+    subtitle: 'Bible-Based Teaching for Spiritual Growth',
     cta: { label: 'Watch Sermons', href: '#sermons' },
   },
   {
@@ -272,31 +348,25 @@ export const HERO_SLIDES = [
     image: 'https://images.unsplash.com/photo-1519491050282-cf00c82424f1?w=1920&q=80',
     title: 'Connect & Belong',
     subtitle: 'Find Your Place in Our Church Family',
-    cta: { label: 'Get Connected', href: '#contact' },
+    cta: { label: 'Get Connected', href: '/contact' },
   },
 ];
 
 // Quick Stats
 export const CHURCH_STATS = [
   { label: 'Years of Ministry', value: '50+' },
-  { label: 'Countries Worldwide', value: '100+' },
-  { label: 'Local Members', value: '500+' },
+  { label: 'Countries Worldwide', value: '40+' },
+  { label: 'Church Locations Worldwide', value: '50,000+' },
   { label: 'Weekly Services', value: '4' },
 ];
 
 // About Content
 export const ABOUT_CONTENT = {
   title: 'About DCLM Tampa',
-  subtitle: 'Proclaiming the Gospel of Jesus Christ',
-  description: `Deeper Life Bible Church Tampa is a vibrant community of believers committed to 
-    the authentic teaching of God\'s Word. As part of the global Deeper Life Bible Church ministry 
-    founded by Pastor W.F. Kumuyi, we are dedicated to spiritual growth, evangelism, and service 
-    to our community.`,
-  mission: `Our mission is to proclaim the gospel of Jesus Christ, make disciples, and equip 
-    believers for the work of ministry. We believe in the transformative power of God\'s Word 
-    and the Holy Spirit to change lives and communities.`,
-  vision: `To be a lighthouse of hope in Tampa Bay, reaching souls for Christ and raising 
-    disciples who impact their world for God\'s kingdom.`,
+  subtitle: 'Your Spiritual Welfare is Our Concern',
+  description: `Deeper Life Bible Church Tampa is part of the global Deeper Christian Life Ministry, a multinational Bible-based holiness church founded by Pastor W.F. Kumuyi in 1973. What began as a Bible study group with 15 university students in Lagos, Nigeria has grown into a worldwide ministry with churches in over 40 countries.`,
+  mission: `Our mission is to proclaim the gospel of Jesus Christ, make disciples, and equip believers for the work of ministry. We take Christian living and holiness seriously.`,
+  vision: `To be a lighthouse of hope in Tampa Bay, reaching souls for Christ and raising disciples who impact their world for God's kingdom.`,
   values: [
     'Biblical Authority',
     'Holiness & Integrity',
@@ -318,12 +388,12 @@ export const CORE_BELIEFS = [
     description: 'We believe salvation is by grace through faith in Jesus Christ alone, available to all who repent and believe.',
   },
   {
-    title: 'Holy Living',
-    description: 'We believe in the call to holy living, empowered by the Holy Spirit, as evidence of genuine faith.',
+    title: 'Sanctification',
+    description: 'We believe entire sanctification is a definite act of God\'s grace, subsequent to the New Birth, by which the believer\'s heart is purified and made holy through faith in the sanctifying blood of Jesus Christ.',
   },
   {
-    title: 'The Church',
-    description: 'We believe the Church is the body of Christ, called to worship, fellowship, and mission in the world.',
+    title: 'The Holy Ghost',
+    description: 'We believe the Baptism in the Holy Ghost is the endowment of power from on High upon the sanctified believer, accompanied by the initial evidence of speaking in tongues as the Spirit gives utterance.',
   },
 ];
 
@@ -554,123 +624,291 @@ export const beliefs = [
   }
 ];
 
-export const events = [
-  {
-    id: 1,
-    title: "Sunday Service",
-    date: "Every Sunday",
-    time: "9:00 AM - 11:00 AM",
-    location: "Main Sanctuary",
-    description: "Join us for powerful worship, inspiring messages, and fellowship.",
-    type: "Weekly"
-  },
-  {
-    id: 2,
-    title: "Bible Study",
-    date: "Every Wednesday",
-    time: "6:00 PM - 8:00 PM",
-    location: "Fellowship Hall",
-    description: "Dive deeper into God's Word through interactive study and discussion.",
-    type: "Weekly"
-  },
-  {
-    id: 3,
-    title: "Prayer Meeting",
-    date: "Every Friday",
-    time: "6:00 PM - 7:00 PM",
-    location: "Prayer Room",
-    description: "Join us in corporate prayer as we seek God's presence and intercede for our community.",
-    type: "Weekly"
-  },
-  {
-    id: 4,
-    title: "Children Bible Club",
-    date: "Every Saturday",
-    time: "12:00 PM - 1:00 PM",
-    location: "Children's Wing",
-    description: "Engaging Bible lessons and fun activities for children to grow in their faith.",
-    type: "Weekly"
-  },
-  {
-    id: 5,
-    title: "Community Outreach",
-    date: "Every First Saturday",
-    time: "9:00 AM - 1:00 PM",
-    location: "Community Center",
-    description: "Serving our community with love through various outreach programs and services.",
-    type: "Monthly"
-  }
-];
 
-export const sermons = [
+// Gallery Images
+export const GALLERY_IMAGES = [
   {
-    id: 1,
-    title: 'Walking in Faith',
-    speaker: 'Pastor Raymond Akoko',
-    date: 'December 3, 2024',
-    scripture: 'Hebrews 11:1-6',
-    duration: '42 min',
+    id: '1',
+    src: '/src/assets/church_1.jpeg',
+    alt: 'DCLM Tampa church gathering',
+    category: 'Worship',
+    date: '2024-12-01',
   },
   {
-    id: 2,
-    title: 'The Power of Prayer',
-    speaker: 'Rev. Sarah Mitchell',
-    date: 'November 26, 2024',
-    scripture: 'Matthew 6:5-15',
-    duration: '38 min',
+    id: '2',
+    src: '/src/assets/church_2.jpeg',
+    alt: 'DCLM Tampa fellowship',
+    category: 'Fellowship',
+    date: '2024-11-28',
   },
   {
-    id: 3,
-    title: 'Living in Grace',
-    speaker: 'Pastor Michael A. Dada',
-    date: 'November 19, 2024',
-    scripture: 'Ephesians 2:1-10',
-    duration: '45 min',
+    id: '3',
+    src: '/src/assets/church_3.jpg',
+    alt: 'DCLM Tampa worship service',
+    category: 'Worship',
+    date: '2024-11-22',
   },
   {
-    id: 4,
-    title: 'The Fruit of the Spirit',
-    speaker: 'Elder Michael Chen',
-    date: 'November 12, 2024',
-    scripture: 'Galatians 5:22-26',
-    duration: '40 min',
+    id: '4',
+    src: '/src/assets/church_4.jpg',
+    alt: 'DCLM Tampa community',
+    category: 'Community',
+    date: '2024-11-20',
   },
   {
-    id: 5,
-    title: 'Love One Another',
-    speaker: 'Pastor Raymond Akoko',
-    date: 'November 5, 2024',
-    scripture: 'John 13:34-35',
-    duration: '36 min',
+    id: '5',
+    src: '/src/assets/church_5.jpg',
+    alt: 'DCLM Tampa ministry event',
+    category: 'Ministry',
+    date: '2024-11-15',
   },
   {
-    id: 6,
-    title: 'The Great Commission',
-    speaker: 'Pastor W.F. Kumuyi',
-    date: 'October 29, 2024',
-    scripture: 'Matthew 28:16-20',
-    duration: '44 min',
+    id: '6',
+    src: '/src/assets/church_6.jpg',
+    alt: 'DCLM Tampa prayer meeting',
+    category: 'Prayer',
+    date: '2024-11-10',
+  },
+  {
+    id: '7',
+    src: '/src/assets/church_7.jpg',
+    alt: 'DCLM Tampa Bible study',
+    category: 'Study',
+    date: '2024-11-05',
+  },
+  {
+    id: '8',
+    src: '/src/assets/church_8.jpg',
+    alt: 'DCLM Tampa youth gathering',
+    category: 'Youth',
+    date: '2024-11-01',
+  },
+  {
+    id: '9',
+    src: '/src/assets/church_9.jpg',
+    alt: 'DCLM Tampa outreach',
+    category: 'Outreach',
+    date: '2024-10-28',
+  },
+  {
+    id: '10',
+    src: '/src/assets/church_10.jpg',
+    alt: 'DCLM Tampa special service',
+    category: 'Service',
+    date: '2024-10-22',
+  },
+  {
+    id: '11',
+    src: '/src/assets/church_11.jpg',
+    alt: 'DCLM Tampa celebration',
+    category: 'Celebration',
+    date: '2024-10-15',
   },
 ];
 
+// Giving - Impact Areas
+export const IMPACT_AREAS = [
+  { title: 'Ministry Operations', description: 'Supporting worship services, Bible studies, and the daily operations of our church.', icon: 'heart' },
+  { title: 'Local Outreach', description: 'Serving our Tampa community through evangelism, food pantry, and benevolence.', icon: 'users' },
+  { title: 'Global Missions', description: 'Supporting missionaries and church planting efforts around the world.', icon: 'globe' },
+  { title: 'Children & Youth', description: "Investing in the next generation through vibrant children's and youth programs.", icon: 'building' },
+];
 
-export const leadership = [
-    {
-      name: 'Pastor W.F. Kumuyi',
-      role: 'General Superintendent',
-      bio: 'Pastor Kumuyi founded Deeper Life Bible Church in 1973 with 15 university students. A former Mathematics professor, he is recognized as one of the greatest living preachers, leading a ministry that has grown to over 120,000 members in Lagos and thousands of churches worldwide across 40+ countries.',
-      image: '',
-    },
-    {
-      name: 'Pastor Michael A. Dada',
-      role: 'Regional Overseer - Mid Atlantic Region, USA',
-      bio: 'Pastor Dada is a dynamic Holy Ghost-filled preacher overseeing over 70 church locations in the United States. A former banker with B.Sc and MBA degrees, he has planted about 60 churches within 19 years and has ministered across the United States, Europe, Asia, Africa, and the Caribbean.',
-      image: '',
-    },
-    {
-      name: 'Pastor Raymond Akoko',
-      role: 'Local Pastor - Tampa, Florida',
-      bio: 'Pastor Raymond Akoko leads our local congregation with dedication to biblical teaching and holiness. He provides spiritual guidance and pastoral care to our church family, continuing the mission of making disciples and demonstrating God\'s love in our community.',
-      image: '',
-    },
-  ];
+// Giving - Methods
+export const GIVING_METHODS = [
+  { title: 'Online Giving', description: 'Give securely online using your credit card, debit card, or bank account.', features: ['Instant confirmation', 'Recurring options', 'Mobile friendly', 'Secure encryption'], cta: 'Give Online', icon: 'dollar-sign', primary: true },
+  { title: 'In-Person Giving', description: 'Offering boxes are available at each service entrance.', features: ['Available at all services', 'Checks payable to DCLM Tampa', 'Giving envelopes provided'], cta: 'Visit Us', icon: 'building', primary: false },
+  { title: 'Mail Your Gift', description: 'Send your gift by mail to our church office.', features: ['9720 N 56th St', 'Temple Terrace, FL 33617'], cta: 'Get Address', icon: 'send', primary: false },
+];
+
+// Giving - Special Funds
+export const SPECIAL_FUNDS = [
+  { title: 'Building Fund', description: 'Help us expand our facilities to accommodate growth.', goal: '-', raised: '-', percentage: 0 },
+  { title: 'Mission Fund', description: 'Support our missionaries and global church planting efforts.', goal: '-', raised: '-', percentage: 0 },
+  { title: 'Benevolence Fund', description: 'Provide assistance to those facing financial hardship.', goal: '-', raised: '-', percentage: 0 },
+];
+
+// Giving - FAQs
+export const GIVING_FAQS = [
+  { question: 'Is my online gift secure?', answer: 'Yes! We use industry-standard encryption and security measures to protect your financial information.' },
+  { question: 'Will I receive a tax receipt?', answer: 'Yes, you will receive a giving statement at the end of each calendar year for tax purposes.' },
+  { question: 'Can I set up recurring gifts?', answer: 'Absolutely! Our online giving platform allows you to set up weekly, bi-weekly, or monthly recurring gifts.' },
+  { question: 'How much should I give?', answer: 'We encourage biblical giving—proportional, sacrificial, and cheerful. The most important thing is to give with a grateful heart.' },
+];
+
+// Recurring Events
+export const RECURRING_EVENTS = [
+  { title: 'Sunday Morning Worship', time: '8:00 AM', description: 'Join us for biblical preaching, passionate worship, and corporate prayer.', icon: 'worship' },
+  { title: 'Monday Bible Study', time: '6:00 PM', description: "Midweek Bible study where we dig deeper into God's Word together.", icon: 'study' },
+  { title: 'Tuesday Leadership Development', time: '6:30 PM', description: 'Training and equipping church leaders for effective ministry.', icon: 'leadership' },
+  { title: "Saturday Workers' Training", time: '5:00 PM', description: 'Equipping workers for service in various church ministries.', icon: 'training' },
+];
+
+// Annual Events
+export const ANNUAL_EVENTS = [
+  { title: 'Easter Services', description: 'Celebrate the resurrection of our Lord with special sunrise service and worship celebration.', icon: '🌅' },
+  { title: 'Global December Retreat', description: 'Annual spiritual retreat with believers worldwide for revival, renewal, and spiritual growth.', icon: '🙏' },
+  { title: 'Youth Conference', description: 'Annual gathering for young people featuring worship, teaching, and meaningful connections.', icon: '🎯' },
+  { title: "Women's Conference", description: 'Annual gathering for women featuring worship, teaching, and meaningful connections.', icon: '💐' },
+  { title: 'Mission Conference', description: 'Annual focus on global missions with guest missionaries and special speakers.', icon: '🌍' },
+  { title: "Workers' Retreat", description: 'Weekend away for church workers to be challenged, equipped, and refreshed.', icon: '⛰️' },
+];
+
+// Visit Steps (for Contact page)
+export const VISIT_STEPS = [
+  {
+    step: 1,
+    title: 'Plan Your Visit',
+    description: 'Check our service times and plan to arrive 10-15 minutes early.',
+  },
+  {
+    step: 2,
+    title: 'Parking & Arrival',
+    description: 'Free parking is available in our lot. Look for our church sign-boards to guide',
+  },
+  {
+    step: 3,
+    title: 'What to Expect',
+    description: 'Dress comfortably. Services include worship, teaching, and fellowship time.',
+  },
+  {
+    step: 4,
+    title: 'Connect with Us',
+    description: 'Fill out a connection card or ask our ushers to learn more.',
+  },
+  {
+    step: 5,
+    title: 'Get Involved',
+    description: 'Discover ministries and small groups where you can belong and serve.',
+  },
+];
+
+// Directions (for Contact page)
+export const DIRECTIONS = {
+  description: 'We are located in Temple Terrace, easily accessible from major highways.',
+  parking: 'Free parking is available in our main lot off N 56th St. Additional overflow parking is available on weekends.',
+  directions: [
+    'From I-275: Take Exit 50 (Fowler Ave) and head east',
+    'Turn left on N 56th St',
+    'Church is on the right at 9720 N 56th St',
+  ],
+};
+
+// Pastor Welcome Default Message (fallback)
+export const DEFAULT_PASTOR_MESSAGE = [
+  'Welcome to Deeper Life Bible Church Tampa! We are so glad you are here. Whether you are visiting for the first time or have been part of our church family for years, it is our prayer that you encounter the living God as we gather to worship Him together.',
+  'Our church is committed to the faithful teaching of God\'s Word, passionate worship, and authentic community. We believe that the Bible is God\'s revealed truth, and we are dedicated to living according to its principles in holiness and love.',
+  'I invite you to join us this Sunday as we study the Scriptures together, lift our voices in praise, and fellowship with other believers. May the Lord bless you richly as you seek to know Him more deeply and serve Him more faithfully.',
+];
+
+// Hero Section Metrics (fallback)
+export const HERO_METRICS = [
+  { label: 'Sunday Worship', value: '9:00 AM' },
+  { label: 'Wednesday Bible Study', value: '6:00 PM' },
+  { label: 'Location', value: '9720 N 56th St, Temple Terrace' },
+];
+
+// Gathering Details (fallback)
+export const GATHERING_DETAILS = [
+  { label: 'Wednesday Bible Study', value: '6:00 PM' },
+  { label: 'Saturday Children Bible Study', value: '11:00 AM' },
+  { label: 'Location', value: 'Zoom Online' },
+];
+
+
+// Hero Background Images
+export const HERO_BACKGROUNDS = {
+  home: 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=1920&q=80',
+  about: 'https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=1920&q=80',
+  ministries: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&q=80',
+  events: 'https://images.unsplash.com/photo-1519167758481-83f29da8c835?w=1920&q=80',
+  sermons: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1920&q=80',
+  give: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1920&q=80',
+  contact: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=80',
+};
+
+
+
+
+
+// Service Time Default Images
+export const SERVICE_TIME_IMAGES = {
+  'Sunday Worship Service': '/src/assets/church_2.jpeg',
+  'Bible Study': '/src/assets/church_6.jpg',
+  'Prayer Meeting & Revival Service': '/src/assets/church_8.jpg',
+  'Community Outreach': '/src/assets/church_4.jpg',
+};
+
+// Ministry Statistics
+export const MINISTRY_STATS = [
+  { number: '12+', label: 'Active Ministries' },
+  { number: '500+', label: 'Volunteers Serving' },
+  { number: '1,000+', label: 'Lives Impacted Monthly' },
+  { number: '25+', label: 'Weekly Programs' },
+];
+
+// About Section Data
+export const ABOUT_SECTION = {
+  image: '/src/assets/church_1.jpeg',
+  churchInteriorImage: '/src/assets/church_3.jpg',
+  history: [
+    'Founded in 1995, Deeper Life Bible Church Tampa has been a beacon of hope and spiritual transformation in the Tampa Bay community for nearly three decades.',
+    'What began as a small gathering of believers committed to biblical truth and holiness has grown into a vibrant congregation serving hundreds of families across the region.',
+    'Our church is part of the global Deeper Life Bible Church movement, which was founded by Pastor W.F. Kumuyi in Nigeria in 1973. Today, the ministry spans over 120 countries worldwide, united by a commitment to sound doctrine, holy living, and passionate evangelism.',
+  ],
+};
+
+// Default Fallback Images
+export const DEFAULT_IMAGES = {
+  pastor: '/src/assets/pastor_raymond.jpg',
+  leader: '/src/assets/pastor_raymond.jpg',
+  ministry: '/src/assets/church_5.jpg',
+  event: '/src/assets/church_7.jpg',
+  sermon: '/src/assets/church_9.jpg',
+};
+
+
+// ============================================================================
+// FLORIDA DCLM LOCATIONS
+// ============================================================================
+
+export const FLORIDA_LOCATIONS = [
+  { id: 'tampa', name: 'Deeper Life Bible Church, Tampa', pastor: 'Pastor Raymond Akoko', address: '9720 North 56th Street, Temple Terrace, Tampa FL 33617', phone: '(813) 542-7793', facebook: 'https://www.facebook.com/Deeper-Life-Bible-Church-Tampa-Florida-USA-134141673318398/' },
+  { id: 'deltona', name: 'Deeper Life Church, Deltona', pastor: 'Pastor Obafemi Ogunrinde', address: '704 Goldcoast Drive, Deltona, FL 32725', phone: '(386) 860-4094' },
+  { id: 'gainesville', name: 'Deeper Life Bible Church, Gainesville', pastor: 'Pastor Akin Omoniyi', address: '1731 NW 6th Street, Suite B1, Gainesville, FL 32609', phone: '(301) 204-6564' },
+  { id: 'jacksonville', name: 'Deeper Life Bible Church, Jacksonville', pastor: 'Pastor Joseph Adedokun', address: '8849 Ivey Road, Jacksonville, FL 32216', phone: '(904) 723-3522' },
+  { id: 'miami', name: 'Deeper Life Bible Church, Miami/Miramar', pastor: 'Pastor Michael Bayere', address: '17325 NW 27th Avenue, Suite 204, Miami Gardens, FL 33056', phone: '(305) 318-2437' },
+  { id: 'orlando', name: 'Deeper Life Bible Church, Orlando', pastor: 'Pastor Victor Nkwocha', address: '802 Crest Pines Drive, Orlando, FL 32828', phone: '(321) 202-3242' },
+];
+
+// ============================================================================
+// REGIONAL & USEFUL LINKS
+// ============================================================================
+
+export const REGIONAL_INFO = {
+  headquarters: {
+    name: 'Deeper Life Bible Church - Regional Headquarters',
+    overseer: 'Pastor Michael A. Dada',
+    address: '4915 Sargent Road N.E., Washington DC 20017',
+    phone: '(202) 509-7771',
+    altPhone: '(202) 829-8145',
+    email: 'deeperlifedc@yahoo.com',
+    website: 'https://deeperlifedc.org',
+  },
+  floridaState: {
+    overseer: 'Pastor Obafemi Ogunrinde',
+    address: '704 Goldcoast Drive, Deltona, FL 32725',
+    phone: '(386) 860-4094',
+    email: 'deeperlifefl@bellsouth.net',
+  },
+};
+
+export const USEFUL_LINKS = {
+  dclmWorldwide: 'https://dclm.org',
+  dclmWebcast: 'https://webcast.dclm.org',
+  dclmRadio: 'https://radio.dclm.org',
+  dailyManna: 'https://dailymanna.dclm.org',
+  higherEveryday: 'https://highereveryday.dclm.org',
+  regionalHQ: 'https://deeperlifedc.org',
+  floridaChurches: 'https://dclmfl.org',
+};

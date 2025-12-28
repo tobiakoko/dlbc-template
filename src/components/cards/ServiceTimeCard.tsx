@@ -1,19 +1,12 @@
 import { Card, CardContent } from '../ui/card';
 import { getIconByName } from '@/lib/icon-map';
 import type { ServiceTimeContent } from '@/types/cms';
+import { SERVICE_TIME_IMAGES } from '@/utils/data';
 
 export function ServiceTimeCard({ title, time, description, iconName, imageUrl }: ServiceTimeContent & { imageUrl?: string }) {
   const Icon = getIconByName(iconName);
 
-  // Professional church/worship imagery for each service type
-  const defaultImages = {
-    'Sunday School': 'https://images.unsplash.com/photo-1519491050282-cf00c82424f1?w=800&q=80',
-    'Worship Service': 'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800&q=80',
-    'Bible Study': 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&q=80',
-    'Prayer Meeting': 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=800&q=80',
-  };
-
-  const backgroundImage = imageUrl || defaultImages[title as keyof typeof defaultImages] || defaultImages['Worship Service'];
+  const backgroundImage = imageUrl || SERVICE_TIME_IMAGES[title as keyof typeof SERVICE_TIME_IMAGES] || SERVICE_TIME_IMAGES['Sunday Worship Service'];
 
   return (
     <Card className="group h-full border-none overflow-hidden shadow-[0_25px_65px_rgba(10,7,20,0.08)] transition-all hover:-translate-y-1 hover:shadow-[0_35px_90px_rgba(10,7,20,0.18)]">

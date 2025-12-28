@@ -2,6 +2,7 @@ import { CTAButtonGroup } from '@/components/ui/CTAButtonGroup';
 import { Card, CardContent } from '@/components/ui/card';
 import type { HeroContent, HeroMetric } from '@/types/cms';
 import { getIconByName } from '@/lib/icon-map';
+import { HERO_METRICS, GATHERING_DETAILS } from '@/utils/data';
 
 export function HeroSection({
   title,
@@ -13,20 +14,25 @@ export function HeroSection({
 }: HeroContent) {
   const metricItems = metrics?.length
     ? metrics
-    : [
-        { label: 'Sunday Worship', value: '10:00 AM', description: 'Temple Terrace Ministry Center' },
-        { label: 'Midweek Bible Study', value: 'Wednesdays · 7 PM', description: 'Interactive discipleship night' },
-        { label: 'Location', value: '9720 N 56th St', description: 'Tampa, Florida' },
-      ];
+    : HERO_METRICS.map(m => ({
+        label: m.label,
+        value: m.value,
+        description: '',
+        iconName: m.label.includes('Worship') ? 'clock'
+          : m.label.includes('Bible') ? 'book'
+          : 'mapPin',
+      }));
 
   const gatheringDetails: HeroMetric[] =
     gathering?.details?.length
       ? gathering.details
-      : [
-          { label: 'Midweek Bible Study', value: 'Wednesdays · 7:00 PM', iconName: 'calendarDays' },
-          { label: 'Prayer & Evangelism', value: 'Fridays · 6:30 PM', iconName: 'clock' },
-          { label: 'Campus', value: '9720 N 56th St, Tampa', iconName: 'mapPin' },
-        ];
+      : GATHERING_DETAILS.map(d => ({
+          label: d.label,
+          value: d.value,
+          iconName: d.label.includes('Bible Study') ? 'calendarDays'
+            : d.label.includes('Prayer') ? 'clock'
+            : 'mapPin',
+        }));
 
   return (
     <section className="relative overflow-hidden rounded-b-[48px] bg-[#0b0514] text-white shadow-[0_35px_90px_rgba(9,4,18,0.55)]">
@@ -90,7 +96,7 @@ export function HeroSection({
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {metricItems.map(({ label, value, description, iconName }) => {
-            const Icon = getIconByName(iconName);
+            const Icon = getIconByName(iconName as any);
             return (
               <Card key={label} className="border-white/10 bg-white/10 text-white backdrop-blur">
                 <CardContent className="flex flex-col gap-3 p-6">

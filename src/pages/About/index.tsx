@@ -6,6 +6,7 @@ import { PastorCard } from '@/components/cards/PastorCard';
 import { PageHero } from '@/components/sections/PageHero';
 import { Card } from '@/components/ui/card';
 import { useScrollToHash } from '@/hooks/useScrollToHash';
+import { leadership, ABOUT_SECTION, DEFAULT_IMAGES } from '@/utils/data';
 
 export function About() {
   const [selectedPastor, setSelectedPastor] = useState<any>(null);
@@ -13,29 +14,14 @@ export function About() {
   // Enable hash scrolling
   useScrollToHash();
 
-  const pastors = [
-    {
-      name: 'Pastor John Smith',
-      title: 'Senior Pastor',
-      image: 'https://images.unsplash.com/photo-1624471621620-c30f427546ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXN0b3IlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDF8fHx8MTc2NTg3NDQ4Nnww&ixlib=rb-4.1.0&q=80&w=1080',
-      description: 'Serving since 1995, Pastor John has a heart for expository preaching and discipleship.',
-      bio: 'Serving since 1995, Pastor John has a heart for expository preaching and discipleship. He holds a Master of Divinity from Dallas Theological Seminary and has dedicated his life to teaching the Word of God with clarity and conviction.\n\nUnder his leadership, Deeper Life Bible Church has grown from a small gathering to a vibrant, multi-generational community. Pastor John is passionate about equipping believers to live out their faith in practical, transformative ways.\n\nHe and his wife Sarah have been married for 30 years and have three grown children who are all actively serving in ministry.'
-    },
-    {
-      name: 'Pastor Michael Brown',
-      title: 'Associate Pastor',
-      image: 'https://images.unsplash.com/photo-1624471621620-c30f427546ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXN0b3IlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDF8fHx8MTc2NTg3NDQ4Nnww&ixlib=rb-4.1.0&q=80&w=1080',
-      description: 'Pastor Michael oversees our youth ministry and community outreach programs.',
-      bio: 'Pastor Michael oversees our youth ministry and community outreach programs. He joined the pastoral team in 2010 and has been instrumental in developing ministries that reach the next generation.\n\nWith a degree in Youth Ministry and years of experience working with young people, Pastor Michael has a unique ability to communicate biblical truth in relevant and engaging ways.\n\nHe is married to Jennifer, and they have two teenage children who are actively involved in the youth group.'
-    },
-    {
-      name: 'Pastor David Lee',
-      title: 'Worship Pastor',
-      image: 'https://images.unsplash.com/photo-1624471621620-c30f427546ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXN0b3IlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDF8fHx8MTc2NTg3NDQ4Nnww&ixlib=rb-4.1.0&q=80&w=1080',
-      description: 'Pastor David leads our worship ministry and oversees our music teams.',
-      bio: 'Pastor David leads our worship ministry and oversees our music teams. Since joining in 2015, he has cultivated a culture of heartfelt, biblically-grounded worship that draws people into the presence of God.\n\nWith a background in music education and worship theology, Pastor David is committed to training worship leaders and musicians who use their gifts to glorify God.\n\nHe and his wife Rachel lead worship together and are passionate about mentoring the next generation of worship leaders.'
-    }
-  ];
+  // Transform leadership data to match the expected format
+  const pastors = leadership.map((leader) => ({
+    name: leader.name,
+    title: leader.role,
+    image: leader.image || DEFAULT_IMAGES.leader,
+    description: leader.bio.split('\n\n')[0], // First paragraph as description
+    bio: leader.bio,
+  }));
 
   const coreValues = [
     {
@@ -89,20 +75,9 @@ export function About() {
           >
             <h2 className="mb-6">Our Story</h2>
             <div className="space-y-4 text-slate-600 leading-relaxed">
-              <p>
-                Founded in 1995, Deeper Life Bible Church Tampa has been a beacon of biblical truth
-                and spiritual transformation in the Tampa Bay community for nearly three decades.
-              </p>
-              <p>
-                What began as a small gathering of believers committed to expository preaching and
-                discipleship has grown into a vibrant, multi-generational church family united by our
-                love for Christ and His Word.
-              </p>
-              <p>
-                Through seasons of growth and challenge, our commitment has remained unchanged: to be
-                a church where the Bible is taught without compromise, where believers are equipped to
-                live out their faith, and where the lost can encounter the transforming power of the Gospel.
-              </p>
+              {ABOUT_SECTION.history.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
           </motion.div>
           <motion.div
@@ -113,7 +88,7 @@ export function About() {
             className="h-125 overflow-hidden rounded-[32px] border border-black/5 shadow-[0_35px_90px_rgba(10,7,20,0.15)] group"
           >
             <img
-              src="https://images.unsplash.com/photo-1763219804448-84ad92cadb5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBpbnRlcmlvciUyMGNvbmdyZWdhdGlvbnxlbnwxfHx8fDE3NjU3MTI5ODF8MA&ixlib=rb-4.1.0&q=80&w=1080"
+              src={ABOUT_SECTION.churchInteriorImage}
               alt="Church interior"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />

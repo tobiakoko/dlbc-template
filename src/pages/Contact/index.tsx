@@ -2,6 +2,7 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { memo, type ReactNode } from 'react';
 import { PageHero } from '@/components/sections/PageHero';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { CHURCH_INFO, SERVICE_TIMES, VISIT_STEPS, DIRECTIONS } from '@/utils/data';
 
 const infoItems: Array<{
   icon: typeof MapPin;
@@ -14,9 +15,9 @@ const infoItems: Array<{
     title: 'Location',
     description: (
       <>
-        123 Church Street
+        {CHURCH_INFO.address.street}
         <br />
-        Tampa, FL 33602
+        {CHURCH_INFO.address.city}, {CHURCH_INFO.address.state} {CHURCH_INFO.address.zip}
       </>
     ),
     subtext: null,
@@ -24,13 +25,13 @@ const infoItems: Array<{
   {
     icon: Phone,
     title: 'Phone',
-    description: '(813) 555-0123',
+    description: CHURCH_INFO.phone,
     subtext: 'Monday – Friday · 9:00 AM – 5:00 PM',
   },
   {
     icon: Mail,
     title: 'Email',
-    description: 'info@dlbctampa.org',
+    description: CHURCH_INFO.email,
     subtext: 'We respond within 24 hours.',
   },
   {
@@ -38,39 +39,31 @@ const infoItems: Array<{
     title: 'Service Times',
     description: (
       <>
-        Sunday Worship: 9:00 AM & 11:00 AM
+        {SERVICE_TIMES.filter(s => s.day === 'Sunday').map((service, i) => (
+          <span key={i}>
+            {service.name}: {service.time}
+            {i < SERVICE_TIMES.filter(s => s.day === 'Sunday').length - 1 && <br />}
+          </span>
+        ))}
         <br />
-        Wednesday Bible Study: 7:00 PM
-        <br />
-        Friday Youth Service: 7:00 PM
+        {SERVICE_TIMES.filter(s => s.day === 'Wednesday').map((service, i) => (
+          <span key={i}>
+            {service.name}: {service.time}
+            <br />
+          </span>
+        ))}
+        {SERVICE_TIMES.filter(s => s.day === 'Friday').map((service, i) => (
+          <span key={i}>
+            {service.name}: {service.time}
+          </span>
+        ))}
       </>
     ),
     subtext: null,
   },
 ];
 
-const visitSteps = [
-  {
-    title: 'Warm Welcome',
-    description: 'Our connect team will walk with you from the parking lot to your seat.',
-  },
-  {
-    title: 'Relaxed Atmosphere',
-    description: 'Come as you are—whether you prefer casual or dressy, you will belong.',
-  },
-  {
-    title: 'Biblical Worship',
-    description: 'We open Scripture, worship passionately, and leave time to respond through prayer.',
-  },
-  {
-    title: 'Kids & Students',
-    description: 'Safe check-ins, joyful classrooms, and age-specific teaching every Sunday.',
-  },
-  {
-    title: 'Stay & Connect',
-    description: 'Chat with pastors and hosts afterwards—we’d love to answer every question.',
-  },
-];
+const visitSteps = VISIT_STEPS;
 
 /**
  * Contact page component with contact information, contact form, visit details, and directions.
@@ -122,7 +115,9 @@ export const Contact = memo(() => {
               <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center text-white">
                 <MapPin size={48} className="mb-4" aria-hidden="true" />
                 <p className="text-xl font-semibold">Map Integration Placeholder</p>
-                <p className="mt-2 text-sm text-white/70">123 Church Street, Tampa, FL 33602</p>
+                <p className="mt-2 text-sm text-white/70">
+                  {CHURCH_INFO.address.street}, {CHURCH_INFO.address.city}, {CHURCH_INFO.address.state} {CHURCH_INFO.address.zip}
+                </p>
               </div>
             </div>
           </div>
@@ -261,7 +256,7 @@ export const Contact = memo(() => {
             <div className="surface-card bg-white p-8">
               <h3 className="mb-4">Parking Information</h3>
               <p className="text-slate-600 leading-relaxed mb-4">
-                Free parking is available in our main lot directly behind the church, with overflow parking each weekend.
+                {DIRECTIONS.parking}
               </p>
               <p className="text-slate-600 leading-relaxed">
                 Handicap-accessible spaces sit near the main entrance. Our team is ready to help carry bags or assist your family.
@@ -270,11 +265,15 @@ export const Contact = memo(() => {
             <div className="surface-card bg-white p-8">
               <h3 className="mb-4">Getting Here</h3>
               <p className="text-slate-600 leading-relaxed mb-4">
-                <strong>From I-275 North:</strong> Take exit 45 and turn right on Church Street. We’re two miles down on the left.
+                {DIRECTIONS.description}
               </p>
-              <p className="text-slate-600 leading-relaxed">
-                <strong>From I-275 South:</strong> Take exit 45 and turn left on Church Street. Continue two miles; the campus is on the left.
-              </p>
+              <ul className="space-y-2">
+                {DIRECTIONS.directions.map((direction, index) => (
+                  <li key={index} className="text-slate-600 leading-relaxed">
+                    • {direction}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

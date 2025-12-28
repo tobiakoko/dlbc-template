@@ -2,6 +2,7 @@ import { Calendar, Clock, MapPin, ArrowRight, Sparkles } from 'lucide-react';
 import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
+import { UPCOMING_EVENTS, RECURRING_EVENTS, ANNUAL_EVENTS, HERO_BACKGROUNDS } from '@/utils/data';
 
 /**
  * Events page component displaying upcoming events, weekly schedule, and annual events.
@@ -12,122 +13,19 @@ export const Events = memo(() => {
   const { ref: weeklyRef, isInView: weeklyInView } = useInView({ threshold: 0.1 });
   const { ref: annualRef, isInView: annualInView } = useInView({ threshold: 0.1 });
 
-  const upcomingEvents = [
-    {
-      title: "Christmas Candlelight Service",
-      date: "December 24, 2024",
-      time: "7:00 PM",
-      location: "Main Sanctuary",
-      description: "Join us for a special evening of worship as we celebrate the birth of our Savior with candlelight, carols, and the Christmas story.",
-      category: "Special Service",
-      image: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=800&q=80"
-    },
-    {
-      title: "New Year's Prayer Service",
-      date: "December 31, 2024",
-      time: "10:00 PM - 12:30 AM",
-      location: "Main Sanctuary",
-      description: "End the year in prayer and begin the new year seeking God's face. A powerful time of worship, reflection, and intercession.",
-      category: "Prayer Meeting",
-      image: "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800&q=80"
-    },
-    {
-      title: "Winter Bible Conference",
-      date: "January 12-14, 2025",
-      time: "Various Times",
-      location: "Church Campus",
-      description: "Three days of intensive Bible teaching, worship, and fellowship. Guest speakers will expound on the theme 'Standing Firm in Christ.'",
-      category: "Conference",
-      image: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&q=80"
-    },
-    {
-      title: "Men's Prayer Breakfast",
-      date: "January 18, 2025",
-      time: "7:00 AM - 9:00 AM",
-      location: "Fellowship Hall",
-      description: "Men, join us for a hearty breakfast and a powerful time of prayer as we seek God's guidance and strength for the year ahead.",
-      category: "Men's Ministry",
-      image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"
-    },
-    {
-      title: "Women's Bible Study Launch",
-      date: "January 20, 2025",
-      time: "10:00 AM",
-      location: "Room 201",
-      description: "Begin the new year diving deep into God's Word. This semester we'll be studying the book of Philippians: Joy in Christ.",
-      category: "Women's Ministry",
-      image: "https://images.unsplash.com/photo-1609234656388-0ff363383899?w=800&q=80"
-    },
-    {
-      title: "Youth Winter Retreat",
-      date: "February 2-4, 2025",
-      time: "Weekend",
-      location: "Camp Shiloh",
-      description: "An unforgettable weekend for our youth filled with worship, teaching, outdoor activities, and life-changing fellowship.",
-      category: "Youth Ministry",
-      image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80"
-    }
-  ];
+  // Transform UPCOMING_EVENTS to match the format expected by the page
+  const upcomingEvents = UPCOMING_EVENTS.map(event => ({
+    title: event.title,
+    date: event.date,
+    time: event.time,
+    location: event.location,
+    description: event.description,
+    category: event.category ? event.category.charAt(0).toUpperCase() + event.category.slice(1) : undefined,
+    image: event.image
+  }));
 
-  const recurringEvents = [
-    {
-      title: "Sunday Morning Worship",
-      time: "9:00 AM & 11:00 AM",
-      description: "Join us for biblical preaching, passionate worship, and corporate prayer.",
-      icon: "worship"
-    },
-    {
-      title: "Wednesday Bible Study",
-      time: "7:00 PM",
-      description: "Midweek Bible study where we dig deeper into God's Word together.",
-      icon: "study"
-    },
-    {
-      title: "Friday Youth Service",
-      time: "7:00 PM",
-      description: "High-energy worship and relevant teaching designed for young people.",
-      icon: "youth"
-    },
-    {
-      title: "Saturday Prayer Meeting",
-      time: "6:00 AM",
-      description: "Early morning intercession for our church, community, and world.",
-      icon: "prayer"
-    }
-  ];
-
-  const annualEvents = [
-    {
-      title: "Easter Services",
-      description: "Celebrate the resurrection of our Lord with special sunrise service and worship celebration.",
-      icon: "🌅"
-    },
-    {
-      title: "Vacation Bible School",
-      description: "A week of fun, games, and Bible learning for children in our community each summer.",
-      icon: "📚"
-    },
-    {
-      title: "Fall Harvest Festival",
-      description: "Community celebration with food, games, and fellowship for the whole family.",
-      icon: "🍂"
-    },
-    {
-      title: "Women's Conference",
-      description: "Annual gathering for women featuring worship, teaching, and meaningful connections.",
-      icon: "💐"
-    },
-    {
-      title: "Men's Retreat",
-      description: "Weekend away for men to be challenged, equipped, and refreshed in their faith.",
-      icon: "⛰️"
-    },
-    {
-      title: "Mission Conference",
-      description: "Annual focus on global missions with guest missionaries and special speakers.",
-      icon: "🌍"
-    }
-  ];
+  const recurringEvents = RECURRING_EVENTS;
+  const annualEvents = ANNUAL_EVENTS;
 
   const formatDate = (dateString: string) => {
     const parts = dateString.replace(',', '').split(' ');
@@ -158,7 +56,7 @@ export const Events = memo(() => {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1519167758481-83f29da8c835?w=1920&q=80)' }}
+          style={{ backgroundImage: `url(${HERO_BACKGROUNDS.events})` }}
         />
 
         {/* Overlay */}
@@ -269,11 +167,13 @@ export const Events = memo(() => {
                       </div>
 
                       {/* Category Badge */}
-                      <div className="absolute top-4 right-4">
-                        <span className={`px-3 py-1 ${getCategoryColor(event.category)} text-white text-xs font-semibold rounded-full`}>
-                          {event.category}
-                        </span>
-                      </div>
+                      {event.category && (
+                        <div className="absolute top-4 right-4">
+                          <span className={`px-3 py-1 ${getCategoryColor(event.category)} text-white text-xs font-semibold rounded-full`}>
+                            {event.category}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Content */}

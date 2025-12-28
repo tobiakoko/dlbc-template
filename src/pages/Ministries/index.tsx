@@ -5,6 +5,7 @@ import { ArrowRight, Users, Calendar, MapPin } from 'lucide-react';
 import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
+import { MINISTRY_STATS, HERO_BACKGROUNDS } from '@/utils/data';
 
 /**
  * Ministries Overview Page
@@ -41,7 +42,7 @@ export const Ministries = memo(() => {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&q=80)' }}
+          style={{ backgroundImage: `url(${HERO_BACKGROUNDS.ministries})` }}
         />
 
         {/* Overlay */}
@@ -303,12 +304,7 @@ export const Ministries = memo(() => {
           </motion.div>
 
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {[
-              { number: '12+', label: 'Active Ministries' },
-              { number: '500+', label: 'Volunteers Serving' },
-              { number: '1,000+', label: 'Lives Impacted Monthly' },
-              { number: '25+', label: 'Weekly Programs' }
-            ].map((stat, index) => (
+            {MINISTRY_STATS.map((stat, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}

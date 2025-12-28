@@ -2,66 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
-import { ZoomIn } from 'lucide-react';
+import { ZoomIn, ExternalLink } from 'lucide-react';
 import GalleryLightbox from './GalleryLightbox';
+import { GALLERY_IMAGES } from '@/utils/data';
 
-interface GalleryImage {
-  id: string;
-  src: string;
-  alt: string;
-  category?: string;
-}
-
-const GALLERY_IMAGES: GalleryImage[] = [
-  {
-    id: '1',
-    src: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80',
-    alt: 'Worship concert with raised hands',
-    category: 'Worship',
-  },
-  {
-    id: '2',
-    src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80',
-    alt: 'Youth gathering at sunset',
-    category: 'Youth',
-  },
-  {
-    id: '3',
-    src: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80',
-    alt: 'Guitar player performing',
-    category: 'Music',
-  },
-  {
-    id: '4',
-    src: 'https://images.unsplash.com/photo-1470019693664-1d202d2c0907?w=800&q=80',
-    alt: 'Hands raised in worship',
-    category: 'Praise',
-  },
-  {
-    id: '5',
-    src: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80',
-    alt: 'Couple watching sunset',
-    category: 'Fellowship',
-  },
-  {
-    id: '6',
-    src: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&q=80',
-    alt: 'Good message on wall',
-    category: 'Inspiration',
-  },
-  {
-    id: '7',
-    src: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80',
-    alt: 'Road through forest',
-    category: 'Retreat',
-  },
-  {
-    id: '8',
-    src: 'https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=800&q=80',
-    alt: 'Church interior with light',
-    category: 'Sanctuary',
-  },
-];
+// Use first 8 images for the homepage section
+const FEATURED_IMAGES = GALLERY_IMAGES.slice(0, 8);
 
 export default function PictureGallery() {
   const { ref, isInView } = useInView({ threshold: 0.1 });
@@ -98,7 +44,7 @@ export default function PictureGallery() {
 
           {/* Gallery Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-            {GALLERY_IMAGES.map((image, index) => (
+            {FEATURED_IMAGES.map((image, index) => (
               <motion.div
                 key={image.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -132,12 +78,12 @@ export default function PictureGallery() {
             ))}
           </div>
 
-          {/* View Full Gallery Button */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.8, duration: 0.5 }}
-            className="text-center mt-10"
+            className="flex flex-wrap justify-center gap-4 mt-10"
           >
             <Link
               to="/gallery"
@@ -146,13 +92,22 @@ export default function PictureGallery() {
               View Full Gallery
               <ZoomIn size={18} />
             </Link>
+            <a
+              href="https://www.flickr.com/photos/202049226@N04/albums/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-800 font-semibold rounded-lg border-2 border-primary-800 hover:bg-primary-50 transition-colors"
+            >
+              View on Flickr
+              <ExternalLink size={18} />
+            </a>
           </motion.div>
         </div>
       </section>
 
       {/* Lightbox */}
       <GalleryLightbox
-        images={GALLERY_IMAGES}
+        images={FEATURED_IMAGES}
         isOpen={lightboxOpen}
         onClose={() => setLightboxOpen(false)}
         initialIndex={lightboxIndex}

@@ -10,6 +10,10 @@ const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })))
 const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })));
 const Ministries = lazy(() => import('./pages/Ministries').then(m => ({ default: m.Ministries })));
 const MinistryDetail = lazy(() => import('./pages/Ministries/MinistryDetail').then(m => ({ default: m.MinistryDetail })));
+const Sermons = lazy(() => import('./pages/Sermons'));
+const LatestSermons = lazy(() => import('./pages/Sermons/Latest'));
+const SermonSeries = lazy(() => import('./pages/Sermons/Series'));
+const AudioSermons = lazy(() => import('./pages/Sermons/Audio'));
 const Events = lazy(() => import('./pages/Events').then(m => ({ default: m.Events })));
 const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
 const Give = lazy(() => import('./pages/Give').then(m => ({ default: m.Give })));
@@ -77,6 +81,10 @@ const App: React.FC = () => {
                       <Route path="/about" element={<About />} />
                       <Route path="/ministries" element={<Ministries />} />
                       <Route path="/ministries/:slug" element={<MinistryDetail />} />
+                      <Route path="/sermons" element={<Sermons />} />
+                      <Route path="/sermons/latest" element={<LatestSermons />} />
+                      <Route path="/sermons/series" element={<SermonSeries />} />
+                      <Route path="/sermons/audio" element={<AudioSermons />} />
                       <Route path="/events" element={<Events />} />
                       <Route path="/gallery" element={<PhotoGallery />} />
                       <Route path="/contact" element={<Contact />} />

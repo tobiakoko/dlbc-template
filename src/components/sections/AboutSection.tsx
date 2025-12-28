@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from '../../../src/hooks/useInView';
 import { BookOpen, Heart, Users, Globe } from 'lucide-react';
-import { ABOUT_CONTENT, CHURCH_STATS } from '@/utils/data';
+import { ABOUT_CONTENT, CHURCH_STATS, ABOUT_SECTION } from '@/utils/data';
 
 export default function AboutSection() {
   const { ref, isInView } = useInView({ threshold: 0.2 });
@@ -47,7 +47,7 @@ export default function AboutSection() {
             {/* Main Image */}
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-strong">
               <img
-                src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=800&q=80"
+                src={ABOUT_SECTION.image}
                 alt="DCLM Tampa worship service"
                 className="w-full h-[400px] lg:h-[500px] object-cover"
               />

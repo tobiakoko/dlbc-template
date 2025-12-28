@@ -6,8 +6,8 @@ import ServiceTimes from '@/components/sections/ServiceTimes';
 import EventsSection from '@/components/sections/EventsSection';
 import MinistriesSection from '@/components/sections/MinistriesSection';
 import SermonsSection from '@/components/sections/SermonsSection';
-import PrayerRequestSection from '@/components/sections/PrayerRequestSection';
 import PictureGallery from '@/components/sections/PictureGallery';
+import { leadership, DEFAULT_PASTOR_MESSAGE, DEFAULT_IMAGES } from '@/utils/data';
 
 /**
  * Home Page Component
@@ -20,7 +20,6 @@ import PictureGallery from '@/components/sections/PictureGallery';
  * - Ministry highlights
  * - Photo and picture galleries
  * - Recent sermons
- * - Prayer request section
  *
  * Uses a semantic HTML structure with proper ARIA labels for accessibility.
  * All sections are memoized to optimize performance.
@@ -28,41 +27,24 @@ import PictureGallery from '@/components/sections/PictureGallery';
  * @returns {JSX.Element} The home page layout
  */
 export const Home = memo(() => {
-  // Fallback data for Pastor Welcome section
+  // Get the local pastor from leadership data
+  const localPastor = leadership.find(leader => leader.role.includes('Local Pastor')) || leadership[leadership.length - 1];
+
+  // Fallback data for Pastor Welcome section using data.ts
   const pastorData = {
-    pastorName: "Pastor James Thompson",
-    pastorTitle: "Regional Pastor",
-    pastorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-    welcomeMessage: [
-      {
-        _type: 'block',
-        children: [
-          {
-            _type: 'span',
-            text: 'Welcome to Deeper Life Bible Church Tampa! Whether you\'re visiting for the first time or have been part of our family for years, we\'re grateful you\'re here.'
-          }
-        ]
-      },
-      {
-        _type: 'block',
-        children: [
-          {
-            _type: 'span',
-            text: 'Our church is built on a foundation of biblical truth, authentic worship, and genuine community. We believe that everyone has a place at God\'s table, and we\'re committed to helping you discover and fulfill God\'s unique purpose for your life.'
-          }
-        ]
-      },
-      {
-        _type: 'block',
-        children: [
-          {
-            _type: 'span',
-            text: 'I invite you to join us this Sunday and experience the transforming power of God\'s Word in a warm, welcoming environment. We can\'t wait to meet you!'
-          }
-        ]
-      }
-    ],
-    signature: "Blessings in Christ, Pastor James Thompson",
+    pastorName: localPastor.name,
+    pastorTitle: localPastor.role,
+    pastorImage: localPastor.image || DEFAULT_IMAGES.pastor,
+    welcomeMessage: DEFAULT_PASTOR_MESSAGE.map((text) => ({
+      _type: 'block',
+      children: [
+        {
+          _type: 'span',
+          text: text
+        }
+      ]
+    })),
+    signature: `Blessings in Christ, ${localPastor.name}`,
     callToAction: {
       enabled: true,
       label: "Learn More About Our Church",
@@ -84,7 +66,6 @@ export const Home = memo(() => {
         <MinistriesSection />
         <PictureGallery />
         <SermonsSection />
-        <PrayerRequestSection />
       </main>
     </div>
   );

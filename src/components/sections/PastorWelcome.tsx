@@ -93,14 +93,14 @@ export const PastorWelcome = memo(({
   signature,
   callToAction
 }: PastorWelcomeProps) => {
-  // Fallback content if no Sanity data
-  const defaultMessage = [
+  // Import fallback content from data.ts
+  const DEFAULT_PASTOR_MESSAGE = [
     {
       _type: 'block',
       children: [
         {
           _type: 'span',
-          text: 'Welcome to Deeper Life Bible Church Tampa! Whether you\'re visiting for the first time or have been part of our family for years, we\'re grateful you\'re here.'
+          text: 'Welcome to Deeper Life Bible Church Tampa! We are so glad you are here. Whether you are visiting for the first time or have been part of our church family for years, it is our prayer that you encounter the living God as we gather to worship Him together.'
         }
       ]
     },
@@ -109,7 +109,7 @@ export const PastorWelcome = memo(({
       children: [
         {
           _type: 'span',
-          text: 'Our church is built on a foundation of biblical truth, authentic worship, and genuine community. We believe that everyone has a place at God\'s table, and we\'re committed to helping you discover and fulfill God\'s unique purpose for your life.'
+          text: 'Our church is committed to the faithful teaching of God\'s Word, passionate worship, and authentic community. We believe that the Bible is God\'s revealed truth, and we are dedicated to living according to its principles in holiness and love.'
         }
       ]
     },
@@ -118,7 +118,7 @@ export const PastorWelcome = memo(({
       children: [
         {
           _type: 'span',
-          text: 'I invite you to join us this Sunday and experience the transforming power of God\'s Word in a warm, welcoming environment. We can\'t wait to meet you!'
+          text: 'I invite you to join us this Sunday as we study the Scriptures together, lift our voices in praise, and fellowship with other believers. May the Lord bless you richly as you seek to know Him more deeply and serve Him more faithfully.'
         }
       ]
     }
@@ -126,7 +126,7 @@ export const PastorWelcome = memo(({
 
   const messageContent = welcomeMessage && welcomeMessage.length > 0
     ? welcomeMessage
-    : defaultMessage;
+    : DEFAULT_PASTOR_MESSAGE;
 
   return (
     <section className="bg-gradient-to-br from-[var(--color-tertiary)] via-white to-[var(--color-rose)]/30 relative overflow-hidden">

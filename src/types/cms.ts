@@ -1,26 +1,38 @@
-import type { ReactNode } from 'react';
+/**
+ * CMS Content Types
+ *
+ * Types specific to content management system structure.
+ * Re-exports common types to maintain compatibility.
+ */
 
-export type IconName =
-  | 'calendar'
-  | 'calendarDays'
-  | 'clock'
-  | 'mapPin'
-  | 'bookOpen'
-  | 'users'
-  | 'youtube'
-  | 'facebook'
-  | 'instagram';
+import type {
+  IconName,
+  CTAButton,
+  SocialLink,
+  ServiceTime,
+  Event,
+  Sermon,
+  Ministry,
+} from './common';
 
-export type CTAButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
+// Re-export common types
+export type {
+  IconName,
+  CTAButtonVariant,
+  CTAButton,
+  SocialLink,
+  ServiceTime,
+  Event,
+  Ministry,
+  Sermon,
+} from './common';
 
-export interface CTAButtonContent {
-  label: string;
-  href: string;
-  variant?: CTAButtonVariant;
-  external?: boolean;
-  iconName?: IconName;
-  icon?: ReactNode;
-}
+// Aliases for backwards compatibility
+export type { CTAButton as CTAButtonContent } from './common';
+export type { Event as EventContent } from './common';
+export type { Sermon as SermonContent } from './common';
+export type { Ministry as MinistryContent } from './common';
+export type { ServiceTime as ServiceTimeContent } from './common';
 
 export interface HeroMetric {
   label: string;
@@ -43,7 +55,7 @@ export interface HeroContent {
   title: string;
   subtitle: string;
   backgroundImage: string;
-  buttons: CTAButtonContent[];
+  buttons: CTAButton[];
   metrics?: HeroMetric[];
   gathering?: {
     eyebrow?: string;
@@ -71,40 +83,12 @@ export interface AboutSectionContent {
     url: string;
     alt?: string;
   };
-  button?: CTAButtonContent;
+  button?: CTAButton;
   cards: Array<{
     label: string;
     title: string;
     description?: string;
   }>;
-}
-
-export interface EventContent {
-  id: string;
-  title: string;
-  date: string;
-  time: string;
-  location: string;
-  description?: string;
-  href?: string;
-  ctaLabel?: string;
-  featured?: boolean;
-}
-
-export interface SermonContent {
-  id: string;
-  title: string;
-  date: string;
-  speaker: string;
-  series: string;
-  thumbnail: string;
-}
-
-export interface MinistryContent {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
 }
 
 export interface VisitInfoContent {
@@ -123,17 +107,10 @@ export interface VisitInfoContent {
     label: string;
     value: string;
   }>;
-  ctas: CTAButtonContent[];
+  ctas: CTAButton[];
   location?: string;
   address?: string;
   campusName?: string;
-}
-
-export interface ServiceTimeContent {
-  title: string;
-  time: string;
-  description: string;
-  iconName?: IconName;
 }
 
 export interface CopyBlock {
@@ -146,22 +123,16 @@ export interface HomePageContent {
   hero: HeroContent;
   about: AboutSectionContent;
   serviceIntro: CopyBlock;
-  serviceTimes: ServiceTimeContent[];
-  events: EventContent[];
-  sermons: SermonContent[];
-  ministries: MinistryContent[];
+  serviceTimes: ServiceTime[];
+  events: Event[];
+  sermons: Sermon[];
+  ministries: Ministry[];
   visitInfo: VisitInfoContent;
 }
 
 export interface NavLinkContent {
   label: string;
   path: string;
-}
-
-export interface SocialLink {
-  label: string;
-  url: string;
-  iconName?: IconName;
 }
 
 export interface FooterContent {
@@ -184,7 +155,7 @@ export interface FooterContent {
   };
   socials: SocialLink[];
   newsletterCopy: string;
-  ctas: CTAButtonContent[];
+  ctas: CTAButton[];
   copyright?: string;
 }
 
@@ -198,7 +169,7 @@ export interface SiteBranding {
 export interface SiteContent {
   brand: SiteBranding;
   navigation: NavLinkContent[];
-  navCtas: CTAButtonContent[];
+  navCtas: CTAButton[];
   footer: FooterContent;
 }
 

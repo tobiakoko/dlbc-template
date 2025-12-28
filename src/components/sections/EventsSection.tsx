@@ -85,11 +85,13 @@ export default function EventsSection() {
                     </div>
 
                     {/* Category Badge */}
-                    <div className="absolute top-4 right-4">
-                      <span className={`px-3 py-1 ${getCategoryColor(event.category)} text-white text-xs font-semibold rounded-full capitalize`}>
-                        {event.category}
-                      </span>
-                    </div>
+                    {event.category && (
+                      <div className="absolute top-4 right-4">
+                        <span className={`px-3 py-1 ${getCategoryColor(event.category)} text-white text-xs font-semibold rounded-full capitalize`}>
+                          {event.category}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}

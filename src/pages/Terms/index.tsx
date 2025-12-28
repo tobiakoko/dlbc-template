@@ -1,5 +1,6 @@
 import { PageHero } from '@/components/sections/PageHero';
 import { motion } from 'framer-motion';
+import { CHURCH_INFO } from '@/utils/data';
 
 export function Terms() {
   return (
@@ -186,19 +187,19 @@ export function Terms() {
                 If you have questions about these Terms of Use, please contact us:
               </p>
               <div className="bg-slate-50 p-6 rounded-lg border border-slate-200 not-prose">
-                <p className="mb-2"><strong>Deeper Life Bible Church Tampa</strong></p>
-                <p className="mb-2">1234 Faith Avenue</p>
-                <p className="mb-2">Tampa, FL 33601</p>
+                <p className="mb-2"><strong>{CHURCH_INFO.name}</strong></p>
+                <p className="mb-2">{CHURCH_INFO.address.street}</p>
+                <p className="mb-2">{CHURCH_INFO.address.city}, {CHURCH_INFO.address.state} {CHURCH_INFO.address.zip}</p>
                 <p className="mb-2">
                   <strong>Email:</strong>{' '}
-                  <a href="mailto:info@dclmtampa.org" className="text-primary-600 hover:text-primary-700">
-                    info@dclmtampa.org
+                  <a href={`mailto:${CHURCH_INFO.email}`} className="text-primary-600 hover:text-primary-700">
+                    {CHURCH_INFO.email}
                   </a>
                 </p>
                 <p>
                   <strong>Phone:</strong>{' '}
-                  <a href="tel:8135550123" className="text-primary-600 hover:text-primary-700">
-                    (813) 555-0123
+                  <a href={`tel:${CHURCH_INFO.phone.replace(/[^0-9]/g, '')}`} className="text-primary-600 hover:text-primary-700">
+                    {CHURCH_INFO.phone}
                   </a>
                 </p>
               </div>

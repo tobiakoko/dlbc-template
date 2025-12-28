@@ -3,52 +3,10 @@ import { motion } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import GalleryLightbox from './GalleryLightbox';
+import { GALLERY_IMAGES } from '@/utils/data';
 
-interface GalleryImage {
-  id: string;
-  src: string;
-  alt: string;
-  category?: string;
-}
-
-const FEATURED_GALLERY_IMAGES: GalleryImage[] = [
-  {
-    id: '1',
-    src: 'https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=1200&q=80',
-    alt: 'Church worship service',
-    category: 'Worship',
-  },
-  {
-    id: '2',
-    src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80',
-    alt: 'Youth gathering at sunset',
-    category: 'Youth',
-  },
-  {
-    id: '3',
-    src: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1200&q=80',
-    alt: 'Community fellowship',
-    category: 'Fellowship',
-  },
-  {
-    id: '4',
-    src: 'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=1200&q=80',
-    alt: 'Sunday service congregation',
-    category: 'Service',
-  },
-  {
-    id: '5',
-    src: 'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=1200&q=80',
-    alt: 'Prayer meeting',
-    category: 'Prayer',
-  },
-  {
-    id: '6',
-    src: 'https://images.unsplash.com/photo-1470019693664-1d202d2c0907?w=1200&q=80',
-    alt: 'Choir performance',
-    category: 'Music',
-  },
-];
+// Use first 6 images for the featured gallery section
+const FEATURED_GALLERY_IMAGES = GALLERY_IMAGES.slice(0, 6);
 
 export default function PhotoGallery() {
   const { ref, isInView } = useInView({ threshold: 0.1 });

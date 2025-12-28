@@ -2,6 +2,7 @@ import { Heart, DollarSign, Globe, Users, Building2, Send, Shield, CheckCircle2,
 import { memo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
+import { IMPACT_AREAS, GIVING_METHODS, SPECIAL_FUNDS, GIVING_FAQS, HERO_BACKGROUNDS } from '@/utils/data';
 
 /**
  * Give page component with giving information, ways to give, and FAQs.
@@ -22,114 +23,38 @@ export const Give = memo(() => {
 
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  const impactAreas = [
-    {
-      icon: Heart,
-      title: 'Ministry Operations',
-      description: 'Supporting worship services, Bible studies, and the daily operations of our church.',
-      color: 'from-rose-500 to-pink-600'
-    },
-    {
-      icon: Users,
-      title: 'Local Outreach',
-      description: 'Serving our Tampa community through food pantry, prison ministry, and benevolence.',
-      color: 'from-blue-500 to-indigo-600'
-    },
-    {
-      icon: Globe,
-      title: 'Global Missions',
-      description: 'Supporting missionaries and church planting efforts around the world.',
-      color: 'from-green-500 to-emerald-600'
-    },
-    {
-      icon: Building2,
-      title: 'Children & Youth',
-      description: 'Investing in the next generation through vibrant children\'s and youth programs.',
-      color: 'from-amber-500 to-orange-600'
-    }
-  ];
+  // Map icon names to actual icon components
+  const iconMap: Record<string, any> = {
+    'heart': Heart,
+    'users': Users,
+    'globe': Globe,
+    'building': Building2,
+    'dollar-sign': DollarSign,
+    'send': Send,
+    'shield': Shield,
+  };
 
-  const givingMethods = [
-    {
-      icon: DollarSign,
-      title: 'Online Giving',
-      description: 'Give securely online using your credit card, debit card, or bank account. Set up one-time or recurring gifts at your convenience.',
-      features: ['Instant confirmation', 'Recurring options', 'Mobile friendly', 'Secure encryption'],
-      cta: 'Give Online',
-      primary: true
-    },
-    {
-      icon: Building2,
-      title: 'In-Person Giving',
-      description: 'Offering boxes are available at each service entrance. You can give by cash or check.',
-      features: ['Available at all services', 'Checks payable to DCLM Tampa', 'Giving envelopes provided'],
-      cta: 'Visit Us',
-      primary: false
-    },
-    {
-      icon: Send,
-      title: 'Mail Your Gift',
-      description: 'Send your gift by mail to our church office.',
-      features: ['1234 Faith Avenue', 'Tampa, FL 33601', 'Include your envelope number'],
-      cta: 'Get Address',
-      primary: false
-    },
-    {
-      icon: Shield,
-      title: 'Stock & Assets',
-      description: 'Consider donating appreciated stocks, bonds, or other assets for tax advantages.',
-      features: ['Tax-advantaged giving', 'Professional handling', 'Contact for details'],
-      cta: 'Learn More',
-      primary: false
-    }
-  ];
+  const impactAreas = IMPACT_AREAS.map(area => ({
+    icon: iconMap[area.icon] || Heart,
+    title: area.title,
+    description: area.description,
+    color: area.title.includes('Ministry') ? 'from-rose-500 to-pink-600'
+      : area.title.includes('Local') ? 'from-blue-500 to-indigo-600'
+      : area.title.includes('Global') ? 'from-green-500 to-emerald-600'
+      : 'from-amber-500 to-orange-600'
+  }));
 
-  const specialFunds = [
-    {
-      title: 'Building Fund',
-      description: 'Help us expand our facilities to accommodate growth and enhance our ministry capacity.',
-      goal: '$500,000',
-      raised: '$325,000',
-      percentage: 65
-    },
-    {
-      title: 'Mission Fund',
-      description: 'Support our missionaries and global church planting efforts around the world.',
-      goal: '$150,000',
-      raised: '$95,000',
-      percentage: 63
-    },
-    {
-      title: 'Benevolence Fund',
-      description: 'Provide assistance to those in our church and community facing financial hardship.',
-      goal: '$75,000',
-      raised: '$48,000',
-      percentage: 64
-    }
-  ];
+  const givingMethods = GIVING_METHODS.map(method => ({
+    icon: iconMap[method.icon] || DollarSign,
+    title: method.title,
+    description: method.description,
+    features: method.features,
+    cta: method.cta,
+    primary: method.primary
+  }));
 
-  const faqs = [
-    {
-      question: 'Is my online gift secure?',
-      answer: 'Yes! We use industry-standard encryption and security measures to protect your financial information. Your gift is processed securely through our trusted giving platform with bank-level security.'
-    },
-    {
-      question: 'Will I receive a tax receipt?',
-      answer: 'Yes, you will receive a giving statement at the end of each calendar year for tax purposes. Online givers receive an immediate email confirmation for each gift. All gifts are tax-deductible to the extent permitted by law.'
-    },
-    {
-      question: 'Can I set up recurring gifts?',
-      answer: 'Absolutely! Our online giving platform allows you to set up weekly, bi-weekly, or monthly recurring gifts. You can modify or cancel your recurring gift at any time through your giving account.'
-    },
-    {
-      question: 'How much should I give?',
-      answer: 'We encourage biblical giving—proportional, sacrificial, and cheerful. Many believers follow the principle of the tithe (10% of income), while others give as God leads them. The most important thing is to give with a grateful heart in response to God\'s generosity to us.'
-    },
-    {
-      question: 'How can I learn more about the church budget?',
-      answer: 'We believe in financial transparency. Our annual budget and financial reports are available to all members. We hold an annual congregational meeting to review finances and answer questions. Contact the church office for more information.'
-    }
-  ];
+  const specialFunds = SPECIAL_FUNDS;
+  const faqs = GIVING_FAQS;
 
   return (
     <div>
@@ -138,7 +63,7 @@ export const Give = memo(() => {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1920&q=80)' }}
+          style={{ backgroundImage: `url(${HERO_BACKGROUNDS.give})` }}
         />
 
         {/* Overlay */}
